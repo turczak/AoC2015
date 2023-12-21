@@ -1,4 +1,5 @@
 import solutions.day1.Day1;
+import solutions.day2.Day2;
 import utils.MyFileReader;
 
 import java.io.File;
@@ -21,5 +22,14 @@ public class Main {
         //Day 1, part II
         System.out.println("Day 1, part II: " +
                 day1.findPositionOfCharacter(day1_input));
+        System.out.println("-------------------------------\n");
+
+        //Day 2, part I
+        Day2 day2 = new Day2();
+        fileReader.changeFile(new File("src/main/java/solutions/day2/input.txt"));
+        List<List<Integer>> day2_input = fileReader.inputAsListOfListsOfDimenions();
+        System.out.println("Day 2, part I: " +
+                day2.calculateTotalSquareFeet(day2_input));
+        System.out.println("-------------------------------\n");
     }
 }
