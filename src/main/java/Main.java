@@ -25,14 +25,14 @@ public class Main {
         System.out.println("-------------------------------");
 
         //Day 2, part I
-        Day2 day2 = new Day2();
         fileReader.changeFile(new File("src/main/java/solutions/day2/input.txt"));
         List<List<Integer>> day2_input = fileReader.inputAsListOfListsOfDimenions();
+        Day2 day2 = new Day2(day2_input);
         System.out.println("Day 2, part I: " +
-                day2.calculateTotalSquareFeet(day2_input));
+                day2.getTotalSquareFeet());
         //Day 2, part II
         System.out.println("Day 2, part II: " +
-                day2.calculateTotalLength(day2_input));
+                day2.getTotalLengthOfRibbon());
         System.out.println("-------------------------------");
     }
 }

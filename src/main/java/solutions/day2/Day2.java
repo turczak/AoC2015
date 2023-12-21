@@ -4,21 +4,24 @@ import java.util.HashMap;
 import java.util.List;
 
 public class Day2 {
-    public Integer calculateTotalSquareFeet(List<List<Integer>> lists){
-        Integer result = 0;
-        for (List<Integer> list:
-        lists){
-            result += new Present(list).getTotalArea();
-        }
-        return result;
-    }
 
-    public Integer calculateTotalLength(List<List<Integer>> lists){
-        Integer result = 0;
+    private Integer totalSquareFeet = 0, totalLengthOfRibbon = 0;
+
+    public Day2(List<List<Integer>> lists){
+        calculateResults(lists);
+    }
+    private void calculateResults(List<List<Integer>> lists){
         for (List<Integer> list:
         lists){
-            result += new Present(list).getTotalLength();
+            Present present = new Present(list);
+            totalSquareFeet += present.getTotalArea();
+            totalLengthOfRibbon += present.getTotalLength();
         }
-        return result;
+    }
+    public Integer getTotalSquareFeet() {
+        return totalSquareFeet;
+    }
+    public Integer getTotalLengthOfRibbon() {
+        return totalLengthOfRibbon;
     }
 }
