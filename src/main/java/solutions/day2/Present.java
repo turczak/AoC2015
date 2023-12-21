@@ -15,10 +15,6 @@ public class Present {
         this.slack = Math.min(Math.min(this.area1, this.area2), this.area3) / 2;
     }
     public Integer getTotalArea() {
-        System.out.println(area1);
-        System.out.println(area2);
-        System.out.println(area3);
-        System.out.println(slack);
         return area1 + area2 + area3 + slack;
     }
 }
