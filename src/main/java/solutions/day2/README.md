@@ -11,6 +11,8 @@ For example:
 
 All numbers in the elves' list are in feet. How many total <code style="color: white">square feet of wrapping paper</code> should they order?
 
+To begin, [get your puzzle input](https://adventofcode.com/2015/day/2/input).
+
 Your puzzle answer was `1586300`.
 
 <code style="color: gold">The first half of this puzzle is complete! It provides one gold star: *</code>
