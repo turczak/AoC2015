@@ -15,4 +15,18 @@ public class Day1 {
         }
         return floor;
     }
+    public int findPositionOfCharacter(List<Character> inputList){
+        int floor = 0;
+        int position = 0;
+        while (floor != -1){
+            if(inputList.get(position) == '('){
+                floor++;
+            } else if (inputList.get(position) == ')') {
+                floor--;
+            }
+            position++;
+        }
+        return position;
+    }
+
 }

@@ -3,6 +3,7 @@ import utils.MyFileReader;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) throws FileNotFoundException {
@@ -11,12 +12,14 @@ public class Main {
 
         System.out.println("Answers for specific tasks: \n");
 
-        //solution to day 1, part I
+        //Day 1, part I
         Day1 day1 = new Day1();
         fileReader.changeFile(new File("src/main/java/solutions/day1/input.txt"));
+        List<Character> day1_input = fileReader.inputAsListOfCharacters();
         System.out.println("Day 1, part I: " +
-                day1.calculateFloor(fileReader.inputAsListOfCharacters()));
-
-
+                day1.calculateFloor(day1_input));
+        //Day 1, part II
+        System.out.println("Day 1, part II: " +
+                day1.findPositionOfCharacter(day1_input));
     }
 }
