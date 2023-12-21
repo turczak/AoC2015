@@ -22,7 +22,7 @@ public class Main {
         //Day 1, part II
         System.out.println("Day 1, part II: " +
                 day1.findPositionOfCharacter(day1_input));
-        System.out.println("-------------------------------\n");
+        System.out.println("-------------------------------");
 
         //Day 2, part I
         Day2 day2 = new Day2();
@@ -30,6 +30,9 @@ public class Main {
         List<List<Integer>> day2_input = fileReader.inputAsListOfListsOfDimenions();
         System.out.println("Day 2, part I: " +
                 day2.calculateTotalSquareFeet(day2_input));
-        System.out.println("-------------------------------\n");
+        //Day 2, part II
+        System.out.println("Day 2, part II: " +
+                day2.calculateTotalLength(day2_input));
+        System.out.println("-------------------------------");
     }
 }

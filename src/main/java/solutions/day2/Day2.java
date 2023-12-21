@@ -12,4 +12,13 @@ public class Day2 {
         }
         return result;
     }
+
+    public Integer calculateTotalLength(List<List<Integer>> lists){
+        Integer result = 0;
+        for (List<Integer> list:
+        lists){
+            result += new Present(list).getTotalLength();
+        }
+        return result;
+    }
 }
