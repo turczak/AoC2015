@@ -68,9 +68,11 @@ public class Main {
 
         //Day 6, part I
         fileReader.changeFile(new File("src/main/java/solutions/day6/input.txt"));
+//        fileReader.changeFile(new File("src/main/resources/test.txt"));
         List<String> day6_input = fileReader.inputAsListOfStrings();
         Day6 day6 = new Day6(day6_input);
-        day6.doInstructions();
         System.out.println("Day 6, part I: " + day6.howManyLightAreLit());
+        //Day 6, part II
+        System.out.println("Day 6, part II: " + day6.calculateTotalBrightness());
     }
 }
