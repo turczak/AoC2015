@@ -57,8 +57,11 @@ public class Main {
 
         //Day 5, part I
         fileReader.changeFile(new File("src/main/java/solutions/day5/input.txt"));
+//        fileReader.changeFile(new File("src/main/resources/test.txt"));
         List<String> day5_input = fileReader.inputAsListOfStrings();
         Day5 day5 = new Day5(day5_input);
-        System.out.println("Day 5, part I: " + day5.howManyStringsAreValid());
+        System.out.println("Day 5, part I: " + day5.getCounter_v1());
+        //Day 5, part II
+        System.out.println("Day 5, part II: " + day5.getCounter_v2());
     }
 }
