@@ -3,6 +3,7 @@ import solutions.day2.Day2;
 import solutions.day3.Day3;
 import solutions.day3.WorkType;
 import solutions.day4.Day4;
+import solutions.day5.Day5;
 import utils.MyFileReader;
 
 import java.io.File;
@@ -53,5 +54,11 @@ public class Main {
         //Day 4, part II
         System.out.println("Day 4, part II: " + day4.findLowestPossibleNumber("000000"));
           */
+
+        //Day 5, part I
+        fileReader.changeFile(new File("src/main/java/solutions/day5/input.txt"));
+        List<String> day5_input = fileReader.inputAsListOfStrings();
+        Day5 day5 = new Day5(day5_input);
+        System.out.println("Day 5, part I: " + day5.howManyStringsAreValid());
     }
 }

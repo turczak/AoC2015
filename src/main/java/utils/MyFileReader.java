@@ -37,4 +37,12 @@ public class MyFileReader {
         }
         return list;
     }
+
+    public List<String> inputAsListOfStrings(){
+        List<String> list = new ArrayList<>();
+        while (scanner.hasNextLine()){
+            list.add(scanner.nextLine());
+        }
+        return list;
+    }
 }
