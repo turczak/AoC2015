@@ -11,3 +11,13 @@ For example:
 
 Your puzzle input is `yzbqklnj`.
 
+Your puzzle answer was `282749`.
+
+<code style="color : gold">The first half of this puzzle is complete! It provides one gold star: *</code>
+## --- Part Two ---
+
+Now find one that starts with <code style="color : white">six zeroes</code>.
+
+Your puzzle answer was `9962624`.
+
+<code style="color : gold">Both parts of this puzzle are complete! They provide two gold stars: **</code>
