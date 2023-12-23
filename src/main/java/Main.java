@@ -5,6 +5,7 @@ import solutions.day3.WorkType;
 import solutions.day4.Day4;
 import solutions.day5.Day5;
 import solutions.day6.Day6;
+import solutions.day7.Day7;
 import utils.MyFileReader;
 
 import java.io.File;
@@ -68,11 +69,15 @@ public class Main {
 
         //Day 6, part I
         fileReader.changeFile(new File("src/main/java/solutions/day6/input.txt"));
-//        fileReader.changeFile(new File("src/main/resources/test.txt"));
         List<String> day6_input = fileReader.inputAsListOfStrings();
         Day6 day6 = new Day6(day6_input);
         System.out.println("Day 6, part I: " + day6.howManyLightAreLit());
         //Day 6, part II
         System.out.println("Day 6, part II: " + day6.calculateTotalBrightness());
+
+        //Day 7, part I
+        fileReader.changeFile(new File("src/main/java/solutions/day7/input.txt"));
+        Day7 day7 = new Day7(fileReader.inputAsListOfStrings());
+
     }
 }
