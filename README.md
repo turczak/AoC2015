@@ -6,8 +6,8 @@
 | [Day 4](https://github.com/turczak/AoC2015/tree/main/src/main/java/solutions/day4) | The Ideal Stocking Stuffer             | :heavy_check_mark: | :heavy_check_mark: |
 | [Day 5](https://github.com/turczak/AoC2015/tree/main/src/main/java/solutions/day5) | Doesn't He Have Intern-Elves For This? | :heavy_check_mark: | :heavy_check_mark: |
 | [Day 6](https://github.com/turczak/AoC2015/tree/main/src/main/java/solutions/day6) | Probably a Fire Hazard                 | :heavy_check_mark: | :heavy_check_mark: |
-| [Day 7]()                                                                          | Some Assembly Required                 | :grey_question:    | :grey_question:    |
-| [Day 8]()                                                                          | Matchsticks                            | :grey_question:    | :grey_question:    |
+| [Day 7](https://github.com/turczak/AoC2015/tree/main/src/main/java/solutions/day7) | Some Assembly Required                 | :grey_question:    | :grey_question:    |
+| [Day 8](https://github.com/turczak/AoC2015/tree/main/src/main/java/solutions/day8) | Matchsticks                            | :heavy_check_mark: | :heavy_check_mark: |
 | [Day 9]()                                                                          | All in a Single Night                  | :grey_question:    | :grey_question:    |
 | [Day 10]()                                                                         | Elves Look, Elves Say                  | :grey_question:    | :grey_question:    |
 | [Day 11]()                                                                         | Corporate Policy                       | :grey_question:    | :grey_question:    |
