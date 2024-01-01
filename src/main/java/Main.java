@@ -1,4 +1,5 @@
 import solutions.day1.Day1;
+import solutions.day10.Day10;
 import solutions.day2.Day2;
 import solutions.day3.Day3;
 import solutions.day3.WorkType;
@@ -102,6 +103,10 @@ public class Main {
         System.out.println(day9.getResultRoute());
         System.out.println("-------------------------");
 
-
+        //Day 10, part I
+        Day10 day10 = new Day10();
+        String day10_input = "3113322113";
+        System.out.println("Part I, length of the result is : " + day10.run(day10_input, 40));
+        System.out.println("Part II, Length of the result is : " + day10.run(day10_input, 50));
     }
 }
