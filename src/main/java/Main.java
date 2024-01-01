@@ -5,6 +5,7 @@ import solutions.day3.WorkType;
 import solutions.day5.Day5;
 import solutions.day8.Day8;
 import solutions.day9.Day9;
+import solutions.day9.SearchType;
 import utils.MyFileReader;
 
 import java.io.File;
@@ -92,8 +93,15 @@ public class Main {
         //Day 9, part I
         fileReader.changeFile(new File("src/main/java/solutions/day9/input.txt"));
 //        fileReader.changeFile(new File("src/main/resources/test.txt"));
-        Day9 day9 = new Day9(fileReader.inputAsListOfStrings());
-        day9.run();
-        System.out.println(day9.getShortestRoute());
+        List<String> day9_input = fileReader.inputAsListOfStrings();
+        Day9 day9 = new Day9(day9_input);
+        day9.run(SearchType.SHORTEST);
+        System.out.println(day9.getResultRoute());
+        //Day 9, part II
+        day9.run(SearchType.LONGEST);
+        System.out.println(day9.getResultRoute());
+        System.out.println("-------------------------");
+
+
     }
 }
