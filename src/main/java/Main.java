@@ -2,16 +2,13 @@ import solutions.day1.Day1;
 import solutions.day2.Day2;
 import solutions.day3.Day3;
 import solutions.day3.WorkType;
-import solutions.day4.Day4;
 import solutions.day5.Day5;
-import solutions.day6.Day6;
-import solutions.day7.Day7;
 import solutions.day8.Day8;
+import solutions.day9.Day9;
 import utils.MyFileReader;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
 public class Main {
@@ -90,5 +87,13 @@ public class Main {
         Day8 day8 = new Day8();
         day8.run(fileReader.inputAsListOfStrings());
         System.out.println(day8);
+        System.out.println("----------------------------------------");
+
+        //Day 9, part I
+        fileReader.changeFile(new File("src/main/java/solutions/day9/input.txt"));
+//        fileReader.changeFile(new File("src/main/resources/test.txt"));
+        Day9 day9 = new Day9(fileReader.inputAsListOfStrings());
+        day9.run();
+        System.out.println(day9.getShortestRoute());
     }
 }
