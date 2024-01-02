@@ -1,6 +1,7 @@
 import solutions.day1.Day1;
 import solutions.day10.Day10;
 import solutions.day11.Day11;
+import solutions.day12.Day12;
 import solutions.day2.Day2;
 import solutions.day3.Day3;
 import solutions.day3.WorkType;
@@ -12,10 +13,11 @@ import utils.MyFileReader;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.List;
 
 public class Main {
-    public static void main(String[] args) throws FileNotFoundException {
+    public static void main(String[] args) throws IOException {
         MyFileReader fileReader = new MyFileReader(new File("src/main/resources/test.txt"));
 
         System.out.println("Answers for specific tasks: \n");
@@ -113,7 +115,15 @@ public class Main {
 
         //Day 11
         Day11 day11 = new Day11();
-        System.out.println("Part I: " + day11.generateNewPassword("hepxcrrq"));
+        String newPassword = day11.generateNewPassword("hepxcrrq");
+        System.out.println("Part I: " + newPassword);
+        System.out.println("Part II: " + day11.generateNewPassword(newPassword));
+        System.out.println("-------------------------------");
 
+        // Day 12
+        System.out.println("Day 12:");
+        Day12 day12 = new Day12(new File("src/main/java/solutions/day12/input.json"));
+        day12.run();
+        System.out.println("------------------------------");
     }
 }
