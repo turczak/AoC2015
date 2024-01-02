@@ -1,17 +1,14 @@
 package solutions.day11;
 
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Day11 {
-    private Matcher matcher;
-
     public String generateNewPassword(String oldPassword) {
-        String result = oldPassword;
-        while (!check(result)) {
-            result = increamentPassword(result);
-        }
-        return result;
+        String newPassword = oldPassword;
+        do {
+            newPassword = increamentPassword(newPassword);
+        } while (!check(newPassword));
+        return newPassword;
     }
 
     private boolean check(String password) {
@@ -29,7 +26,7 @@ public class Day11 {
     }
 
     public boolean second(String password) {
-        String regex = "(?:(?![iol]).)*";
+        String regex = "(?:(?![iol])[a-z])*";
         Pattern pattern = Pattern.compile(regex);
         return pattern.matcher(password).matches();
     }

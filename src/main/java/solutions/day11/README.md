@@ -29,3 +29,9 @@ Your puzzle answer was `hepxxyzz`.
 ## --- Part Two ---
 
 Santa's password expired again. What's the next one?
+
+Your puzzle answer was `heqaabcc`.
+
+<code style="color : gold">Both parts of this puzzle are complete! They provide two gold stars: **</code>
+
+Your puzzle input was `hepxcrrq`.
