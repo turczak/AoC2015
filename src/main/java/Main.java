@@ -1,5 +1,6 @@
 import solutions.day1.Day1;
 import solutions.day10.Day10;
+import solutions.day11.Day11;
 import solutions.day2.Day2;
 import solutions.day3.Day3;
 import solutions.day3.WorkType;
@@ -108,5 +109,11 @@ public class Main {
         String day10_input = "3113322113";
         System.out.println("Part I, length of the result is : " + day10.run(day10_input, 40));
         System.out.println("Part II, Length of the result is : " + day10.run(day10_input, 50));
+        System.out.println("---------------------------");
+
+        //Day 11
+        Day11 day11 = new Day11();
+        System.out.println("Part I: " + day11.generateNewPassword("hepxcrrq"));
+
     }
 }
