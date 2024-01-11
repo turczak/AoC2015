@@ -2,6 +2,7 @@ import solutions.day1.Day1;
 import solutions.day10.Day10;
 import solutions.day11.Day11;
 import solutions.day12.Day12;
+import solutions.day14.Day14;
 import solutions.day2.Day2;
 import solutions.day3.Day3;
 import solutions.day3.WorkType;
@@ -12,7 +13,6 @@ import solutions.day9.SearchType;
 import utils.MyFileReader;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.List;
 
@@ -125,5 +125,12 @@ public class Main {
         Day12 day12 = new Day12(new File("src/main/java/solutions/day12/input.json"));
         day12.run();
         System.out.println("------------------------------");
+
+        //Day 14
+        fileReader.changeFile(new File("src/main/java/solutions/day14/input.txt"));
+        System.out.println("Day 14:");
+        Day14 day14 = new Day14(fileReader.inputAsListOfStrings());
+        day14.run(2503);
+        System.out.println("Winning reindeer traveled " + day14.getMaxDistance() + "km");
     }
 }
