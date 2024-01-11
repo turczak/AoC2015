@@ -32,3 +32,7 @@ After the 1000th second, Dancer has accumulated <b>`689`</b> points, while poor 
 Again given the descriptions of each reindeer (in your puzzle input), after exactly `2503` seconds, **how many points does the winning reindeer have**?
 
 Although it hasn't changed, you can still [get your puzzle input](https://adventofcode.com/2015/day/14/input).
+
+Your puzzle answer was `1059`.
+
+<code style="color : gold">Both parts of this puzzle are complete! They provide two gold stars: **</code>

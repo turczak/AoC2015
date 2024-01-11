@@ -1,16 +1,14 @@
 package solutions.day14;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Day14 {
-    private HashMap<Reindeer, Integer> reindeers;
-    private int maxDistance;
+    private Set<Reindeer> reindeers;
+    public static int counter;
 
     public Day14(List<String> input) {
-        reindeers = new HashMap<>();
-        maxDistance = 0;
+        reindeers = new HashSet<>();
+        Day14.counter = 0;
         createReindeers(input);
     }
 
@@ -23,21 +21,44 @@ public class Day14 {
                     Integer.parseInt(split[6]),
                     Integer.parseInt(split[13])
             );
-            reindeers.put(reindeer, 0);
-        }
-    }
-
-    public void run(int raceDuration) {
-        for (Map.Entry<Reindeer, Integer> entry :
-                reindeers.entrySet()) {
-            Reindeer reindeer = entry.getKey();
-            reindeer.run(raceDuration);
-            int traveledDistance = reindeer.getTraveledDistance();
-            if (traveledDistance > maxDistance) maxDistance = traveledDistance;
+            reindeers.add(reindeer);
         }
     }
 
     public int getMaxDistance() {
-        return maxDistance;
+        return reindeers.stream()
+                .mapToInt(Reindeer::getTraveledDistance)
+                .max()
+                .orElse(0);
+    }
+
+    public int getMaxScore() {
+        return reindeers.stream()
+                .mapToInt(Reindeer::getScore)
+                .max()
+                .orElse(0);
+    }
+
+    public void run(int raceDuration) {
+        while (raceDuration > 0) {
+            int maxDistanceForTurn = 0;
+            Set<Reindeer> leaders = new HashSet<>();
+            for (Reindeer reindeer :
+                    reindeers) {
+                reindeer.action();
+                int traveledDistance = reindeer.getTraveledDistance();
+                if (traveledDistance > maxDistanceForTurn) {
+                    maxDistanceForTurn = traveledDistance;
+                    leaders.clear();
+                    leaders.add(reindeer);
+                } else if (traveledDistance == maxDistanceForTurn) leaders.add(reindeer);
+            }
+            for (Reindeer reindeer :
+                    leaders) {
+                reindeer.addScore();
+            }
+            counter++;
+            raceDuration--;
+        }
     }
 }

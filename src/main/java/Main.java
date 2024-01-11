@@ -3,6 +3,7 @@ import solutions.day10.Day10;
 import solutions.day11.Day11;
 import solutions.day12.Day12;
 import solutions.day14.Day14;
+import solutions.day15.Day15;
 import solutions.day2.Day2;
 import solutions.day3.Day3;
 import solutions.day3.WorkType;
@@ -128,9 +129,19 @@ public class Main {
 
         //Day 14
         fileReader.changeFile(new File("src/main/java/solutions/day14/input.txt"));
+//        fileReader.changeFile(new File("src/main/resources/test.txt"));
         System.out.println("Day 14:");
         Day14 day14 = new Day14(fileReader.inputAsListOfStrings());
         day14.run(2503);
-        System.out.println("Winning reindeer traveled " + day14.getMaxDistance() + "km");
+        System.out.println("Winning reindeer traveled " + day14.getMaxDistance() + "km.");
+        System.out.println("Winning reindeer get " + day14.getMaxScore() + " scores.");
+        System.out.println("------------------------");
+
+        //Day 15
+//        fileReader.changeFile(new File("src/main/java/solutions/day15/input.txt"));
+        fileReader.changeFile(new File("src/main/resources/test.txt"));
+        System.out.println("Day 15:");
+        Day15 day15 = new Day15(fileReader.inputAsListOfStrings());
+        day15.getIngredients();
     }
 }
