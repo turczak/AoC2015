@@ -142,6 +142,6 @@ public class Main {
         fileReader.changeFile(new File("src/main/resources/test.txt"));
         System.out.println("Day 15:");
         Day15 day15 = new Day15(fileReader.inputAsListOfStrings());
-        day15.getIngredients();
+        day15.run();
     }
 }
