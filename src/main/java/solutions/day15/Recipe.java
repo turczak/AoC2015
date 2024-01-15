@@ -36,6 +36,7 @@ public class Recipe {
         int totalDurability = 0;
         int totalFlavor = 0;
         int totalTexture = 0;
+        int totalCalories = 0;
 
         for (Map.Entry<Ingredient, Integer> entry : recipe.entrySet()) {
             Ingredient key = entry.getKey();
@@ -43,10 +44,12 @@ public class Recipe {
             totalDurability += key.durability() * entry.getValue();
             totalFlavor += key.flavor() * entry.getValue();
             totalTexture += key.texture() * entry.getValue();
+            totalCalories += key.calories() * entry.getValue();
         }
 
         if (totalCapacity <= 0 || totalDurability <= 0 || totalFlavor <= 0 || totalTexture <= 0) return 0;
-        else return totalCapacity * totalDurability * totalFlavor * totalTexture;
+        else if (totalCalories == 500) return totalCapacity * totalDurability * totalFlavor * totalTexture;
+        else return 0;
     }
 
     private HashMap<Ingredient, Integer> convertRecipe(List<Ingredient> recipeAsList) {
