@@ -2,21 +2,20 @@ package com.adventofcode;
 
 import com.adventofcode.day01.Day01;
 import com.adventofcode.day02.Day02;
+import com.adventofcode.day03.Day03;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class Main {
 
     public static void main(String[] args) {
         day01();
         day02();
+        day03();
     }
 
     private static void day01() {
@@ -32,6 +31,13 @@ public class Main {
         Day02 day02 = new Day02();
         List<List<Integer>> input = inputAsListOfListsOfDimensions(file);
         System.out.println("Day 2, part I result: " + day02.getTotalSquareFeet(input));
+    }
+
+    private static void day03(){
+        File file = new File("src/main/resources/inputs/day03.txt");
+        Day03 day03 = new Day03();
+        List<Character> input = inputAsListOfCharacters(file);
+        System.out.println("Day 3, part I result: " + day03.deliverPresents(input));
     }
 
     private static List<Character> inputAsListOfCharacters(File file) {
