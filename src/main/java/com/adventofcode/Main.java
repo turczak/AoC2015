@@ -13,10 +13,6 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        menu();
-    }
-
-    private static void menu() {
         Scanner scanner = new Scanner(System.in);
         int choice;
         while (true) {
@@ -34,7 +30,6 @@ public class Main {
                 default -> System.out.println("Invalid option, please use number between 1 and 25.");
             }
         }
-
     }
 
     private static void day01() {
