@@ -5,6 +5,7 @@ import com.adventofcode.day02.Day02;
 import com.adventofcode.day03.Day03;
 import com.adventofcode.day04.Day04;
 import com.adventofcode.day05.Day05;
+import com.adventofcode.day05.MethodOfCheckingIfStringIsNice;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -70,7 +71,8 @@ public class Main {
         Day05 day05 = new Day05();
         File file = new File("src/main/resources/inputs/day05.txt");
         List<String> input = inputAsListOfStrings(file);
-        System.out.println("Day 5, part I result: " + day05.howManyStringsAreNice(input));
+        System.out.println("Day 5, part I result: " + day05.howManyStringsAreNice(input, MethodOfCheckingIfStringIsNice.STANDARD));
+        System.out.println("Day 5, part II result: " + day05.howManyStringsAreNice(input, MethodOfCheckingIfStringIsNice.BETTER));
     }
 
     private static List<Character> inputAsListOfCharacters(File file) {
