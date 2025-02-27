@@ -4,9 +4,12 @@ import com.adventofcode.day01.Day01;
 import com.adventofcode.day02.Day02;
 import com.adventofcode.day03.Day03;
 import com.adventofcode.day04.Day04;
+import com.adventofcode.day05.Day05;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.nio.file.Files;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
@@ -26,7 +29,9 @@ public class Main {
                 }
                 case 1 -> day01();
                 case 2 -> day02();
+                case 3 -> day03();
                 case 4 -> day04();
+                case 5 -> day05();
                 default -> System.out.println("Invalid option, please use number between 1 and 25.");
             }
         }
@@ -61,6 +66,13 @@ public class Main {
         System.out.println("Day 4, part II result: " + day04.findLowestPossibleNumber("000000"));
     }
 
+    private static void day05() {
+        Day05 day05 = new Day05();
+        File file = new File("src/main/resources/inputs/day05.txt");
+        List<String> input = inputAsListOfStrings(file);
+        System.out.println("Day 5, part I result: " + day05.howManyStringsAreNice(input));
+    }
+
     private static List<Character> inputAsListOfCharacters(File file) {
         try {
             Scanner scanner = new Scanner(file);
@@ -82,6 +94,14 @@ public class Main {
                             .toList())
                     .toList();
         } catch (FileNotFoundException exception) {
+            throw new RuntimeException("File not found: " + file.getAbsolutePath(), exception);
+        }
+    }
+
+    private static List<String> inputAsListOfStrings(File file) {
+        try {
+            return Files.readAllLines(file.toPath());
+        } catch (IOException exception) {
             throw new RuntimeException("File not found: " + file.getAbsolutePath(), exception);
         }
     }
