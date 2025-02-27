@@ -31,6 +31,7 @@ public class Main {
         Day02 day02 = new Day02();
         List<List<Integer>> input = inputAsListOfListsOfDimensions(file);
         System.out.println("Day 2, part I result: " + day02.getTotalSquareFeet(input));
+        System.out.println("Day 2, part II result: " + day02.getTotalLength(input));
     }
 
     private static void day03() {
