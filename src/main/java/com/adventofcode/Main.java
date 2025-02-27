@@ -15,10 +15,9 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         while (true) {
-            int choice;
+            int choice = scanner.nextInt();
             System.out.println("Please choose day (1-25) to see results or enter 0 to exit.");
             System.out.println("Your choice: ");
-            choice = scanner.nextInt();
             switch (choice) {
                 case 0 -> {
                     scanner.close();
