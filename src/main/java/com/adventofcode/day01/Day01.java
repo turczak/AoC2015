@@ -6,11 +6,21 @@ public class Day01 {
 
     public int calculateFloor(List<Character> inputList) {
         return inputList.stream()
-                .mapToInt(character -> switch (character) {
-                    case '(' -> 1;
-                    case ')' -> -1;
-                    default -> 0;
-                })
+                .mapToInt(this::checkFloor)
                 .sum();
+    }
+
+    private int checkFloor(Character character) {
+        switch (character) {
+            case '(' -> {
+                return 1;
+            }
+            case ')' -> {
+                return -1;
+            }
+            default -> {
+                return 0;
+            }
+        }
     }
 }
