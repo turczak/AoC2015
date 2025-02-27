@@ -5,12 +5,9 @@ import com.adventofcode.day02.Day02;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class Main {
 
@@ -32,6 +29,7 @@ public class Main {
         Day02 day02 = new Day02();
         List<List<Integer>> input = inputAsListOfListsOfDimensions(file);
         System.out.println("Day 2, part I result: " + day02.getTotalSquareFeet(input));
+        System.out.println("Day 2, part II result: " + day02.getTotalLength(input));
     }
 
     private static List<Character> inputAsListOfCharacters(File file) {

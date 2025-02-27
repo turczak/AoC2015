@@ -29,3 +29,7 @@ For example:
 - A present with dimensions `1x1x10` requires `1+1+1+1 = 4` feet of ribbon to wrap the present plus `1*1*10 = 10` feet of ribbon for the bow, for a total of 14 feet.
 
 How many total <code style="color: white">feet of ribbon</code> should they order?
+
+Your puzzle answer was `3737498`.
+
+<code style="color: gold">Both parts of this puzzle are complete! They provide two gold stars: **</code>
