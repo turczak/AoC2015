@@ -1,7 +1,5 @@
 package com.adventofcode.day02;
 
-import java.util.Arrays;
-import java.util.Comparator;
 import java.util.List;
 
 public class Day02 {
