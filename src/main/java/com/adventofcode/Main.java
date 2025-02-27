@@ -2,6 +2,7 @@ package com.adventofcode;
 
 import com.adventofcode.day01.Day01;
 import com.adventofcode.day02.Day02;
+import com.adventofcode.day04.Day04;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -12,8 +13,9 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        day01();
-        day02();
+//        day01();
+//        day02();
+        day04();
     }
 
     private static void day01() {
@@ -30,6 +32,13 @@ public class Main {
         List<List<Integer>> input = inputAsListOfListsOfDimensions(file);
         System.out.println("Day 2, part I result: " + day02.getTotalSquareFeet(input));
         System.out.println("Day 2, part II result: " + day02.getTotalLength(input));
+    }
+
+    private static void day04() {
+        File file = new File("src/main/resource/inputs/day04.txt");
+        Day04 day04 = new Day04();
+        System.out.println("Day 4, part I result: " + day04.findLowestPossibleNumber("00000"));
+        System.out.println("Day 4, part II result: " + day04.findLowestPossibleNumber("000000"));
     }
 
     private static List<Character> inputAsListOfCharacters(File file) {
