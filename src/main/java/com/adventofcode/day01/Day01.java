@@ -11,16 +11,10 @@ public class Day01 {
     }
 
     private int checkFloor(Character character) {
-        switch (character) {
-            case '(' -> {
-                return 1;
-            }
-            case ')' -> {
-                return -1;
-            }
-            default -> {
-                return 0;
-            }
-        }
+        return switch (character) {
+            case '(' -> 1;
+            case ')' -> -1;
+            default -> 0;
+        };
     }
 }
