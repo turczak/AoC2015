@@ -1,6 +1,6 @@
 package com.adventofcode.day03;
 
-import java.awt.Point;
+import java.awt.*;
 import java.util.HashMap;
 import java.util.List;
 
@@ -12,9 +12,7 @@ public class Day03 {
     public int deliverPresents(List<Character> instructions) {
         //Santa begins by delivering a present to the house at his starting location
         visitedHouses.put(coords, visitedHouses.getOrDefault(coords, 0) + 1);
-        for (char direction : instructions) {
-            move(direction);
-        }
+        instructions.forEach(this::move);
         return this.visitedHouses.size();
     }
 

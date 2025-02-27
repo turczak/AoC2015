@@ -33,7 +33,7 @@ public class Main {
         System.out.println("Day 2, part I result: " + day02.getTotalSquareFeet(input));
     }
 
-    private static void day03(){
+    private static void day03() {
         File file = new File("src/main/resources/inputs/day03.txt");
         Day03 day03 = new Day03();
         List<Character> input = inputAsListOfCharacters(file);
