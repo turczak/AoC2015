@@ -19,13 +19,12 @@ public class Day03 {
     }
 
     private Coordinates move(Coordinates coords, char direction) {
-        Coordinates newCoords = coords;
-        switch (direction) {
-            case '>' -> newCoords = new Coordinates(coords.x() + 1, coords.y());
-            case '<' -> newCoords = new Coordinates(coords.x() - 1, coords.y());
-            case '^' -> newCoords = new Coordinates(coords.x(), coords.y() + 1);
-            case 'v' -> newCoords = new Coordinates(coords.x(), coords.y() - 1);
-        }
-        return newCoords;
+        return switch (direction) {
+            case '>' -> new Coordinates(coords.x() + 1, coords.y());
+            case '<' -> new Coordinates(coords.x() - 1, coords.y());
+            case '^' -> new Coordinates(coords.x(), coords.y() + 1);
+            case 'v' -> new Coordinates(coords.x(), coords.y() - 1);
+            default -> throw new IllegalStateException("Unexpected value: " + direction);
+        };
     }
 }
