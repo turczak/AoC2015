@@ -15,9 +15,9 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         while (true) {
-            int choice = scanner.nextInt();
             System.out.println("Please choose day (1-25) to see results or enter 0 to exit.");
             System.out.println("Your choice: ");
+            int choice = scanner.nextInt();
             switch (choice) {
                 case 0 -> {
                     scanner.close();
@@ -48,7 +48,6 @@ public class Main {
     }
 
     private static void day04() {
-        File file = new File("src/main/resource/inputs/day04.txt");
         Day04 day04 = new Day04();
         System.out.println("Day 4, part I result: " + day04.findLowestPossibleNumber("00000"));
         System.out.println("Day 4, part II result: " + day04.findLowestPossibleNumber("000000"));
