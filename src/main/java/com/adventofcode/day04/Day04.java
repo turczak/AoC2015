@@ -11,8 +11,7 @@ public class Day04 {
             MessageDigest md5 = MessageDigest.getInstance("MD5");
             byte[] bytes = md5.digest(input.getBytes());
             StringBuilder sb = new StringBuilder();
-            for (byte b :
-                    bytes) {
+            for (byte b : bytes) {
                 sb.append(String.format("%02x", b));
             }
             return sb.toString();

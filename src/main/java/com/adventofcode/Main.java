@@ -13,9 +13,28 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-//        day01();
-//        day02();
-        day04();
+        menu();
+    }
+
+    private static void menu() {
+        Scanner scanner = new Scanner(System.in);
+        int choice;
+        while (true) {
+            System.out.println("Please choose day (1-25) to see results or enter 0 to exit.");
+            System.out.println("Your choice: ");
+            choice = scanner.nextInt();
+            switch (choice) {
+                case 0 -> {
+                    scanner.close();
+                    return;
+                }
+                case 1 -> day01();
+                case 2 -> day02();
+                case 4 -> day04();
+                default -> System.out.println("Invalid option, please use number between 1 and 25.");
+            }
+        }
+
     }
 
     private static void day01() {
