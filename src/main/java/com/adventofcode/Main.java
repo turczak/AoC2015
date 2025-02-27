@@ -3,6 +3,7 @@ package com.adventofcode;
 import com.adventofcode.day01.Day01;
 import com.adventofcode.day02.Day02;
 import com.adventofcode.day03.Day03;
+import com.adventofcode.day04.Day04;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -13,9 +14,22 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        day01();
-        day02();
-        day03();
+        Scanner scanner = new Scanner(System.in);
+        while (true) {
+            System.out.println("Please choose day (1-25) to see results or enter 0 to exit.");
+            System.out.println("Your choice: ");
+            int choice = scanner.nextInt();
+            switch (choice) {
+                case 0 -> {
+                    scanner.close();
+                    return;
+                }
+                case 1 -> day01();
+                case 2 -> day02();
+                case 4 -> day04();
+                default -> System.out.println("Invalid option, please use number between 1 and 25.");
+            }
+        }
     }
 
     private static void day01() {
@@ -39,6 +53,12 @@ public class Main {
         Day03 day03 = new Day03();
         List<Character> input = inputAsListOfCharacters(file);
         System.out.println("Day 3, part I result: " + day03.deliverPresents(input));
+    }
+
+    private static void day04() {
+        Day04 day04 = new Day04();
+        System.out.println("Day 4, part I result: " + day04.findLowestPossibleNumber("00000"));
+        System.out.println("Day 4, part II result: " + day04.findLowestPossibleNumber("000000"));
     }
 
     private static List<Character> inputAsListOfCharacters(File file) {
