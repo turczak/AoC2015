@@ -10,9 +10,11 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        File file;
-        /*Day 1*/
-        file = new File("src/main/resources/inputs/day01.txt");
+        day01();
+    }
+
+    private static void day01() {
+        File file = new File("src/main/resources/inputs/day01.txt");
         Day01 day01 = new Day01();
         System.out.println("Day 1, part I result: " + day01.calculateFloor(inputAsListOfCharacters(file)));
     }
