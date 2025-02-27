@@ -38,3 +38,7 @@ For example:
 - `()())` causes him to enter the basement at character position `5`.
 
 What is the <code style="color : lightskyblue">position</code> of the character that causes Santa to first enter the basement?
+
+Your puzzle answer was `1795`.
+
+<code style="color : gold">Both parts of this puzzle are complete! They provide two gold stars: **</code>

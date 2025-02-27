@@ -16,7 +16,9 @@ public class Main {
     private static void day01() {
         File file = new File("src/main/resources/inputs/day01.txt");
         Day01 day01 = new Day01();
-        System.out.println("Day 1, part I result: " + day01.calculateFloor(inputAsListOfCharacters(file)));
+        List<Character> day01_input = inputAsListOfCharacters(file);
+        System.out.println("Day 1, part I result: " + day01.calculateFloor(day01_input));
+        System.out.println("Day 1, part II result: " + day01.findPositionOfBasementEnter(day01_input));
     }
 
     private static List<Character> inputAsListOfCharacters(File file) {
