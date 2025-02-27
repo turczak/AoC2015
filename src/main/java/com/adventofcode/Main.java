@@ -6,8 +6,11 @@ import com.adventofcode.day02.Day02;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Main {
 
@@ -44,19 +47,13 @@ public class Main {
     }
 
     private static List<List<Integer>> inputAsListOfListsOfDimensions(File file) {
-        List<List<Integer>> list = new ArrayList<>();
         try {
             Scanner scanner = new Scanner(file);
-            while (scanner.hasNextLine()) {
-                List<Integer> subList = new ArrayList<>();
-                String[] xes = scanner.nextLine().split("x");
-                for (String s :
-                        xes) {
-                    subList.add(Integer.parseInt(s));
-                }
-                list.add(subList);
-            }
-            return list;
+            return scanner.tokens()
+                    .map(line -> Arrays.stream(line.split("x"))
+                            .map(Integer::parseInt)
+                            .toList())
+                    .toList();
         } catch (FileNotFoundException exception) {
             throw new RuntimeException("File not found: " + file.getAbsolutePath(), exception);
         }
