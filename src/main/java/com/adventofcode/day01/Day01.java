@@ -10,6 +10,19 @@ public class Day01 {
                 .sum();
     }
 
+    public int findPositionOfBasementEnter(List<Character> inputList) {
+        int sum = 0;
+        int position = 1;
+        for (int i = 0; i < inputList.size(); i++) {
+            sum += checkFloor(inputList.get(i));
+            if (sum == -1) {
+                position += i;
+                break;
+            }
+        }
+        return position;
+    }
+
     private int checkFloor(char character) {
         return switch (character) {
             case '(' -> 1;
