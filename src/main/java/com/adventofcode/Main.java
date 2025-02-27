@@ -2,6 +2,7 @@ package com.adventofcode;
 
 import com.adventofcode.day01.Day01;
 import com.adventofcode.day02.Day02;
+import com.adventofcode.day03.Day03;
 import com.adventofcode.day04.Day04;
 
 import java.io.File;
@@ -45,6 +46,13 @@ public class Main {
         List<List<Integer>> input = inputAsListOfListsOfDimensions(file);
         System.out.println("Day 2, part I result: " + day02.getTotalSquareFeet(input));
         System.out.println("Day 2, part II result: " + day02.getTotalLength(input));
+    }
+
+    private static void day03() {
+        File file = new File("src/main/resources/inputs/day03.txt");
+        Day03 day03 = new Day03();
+        List<Character> input = inputAsListOfCharacters(file);
+        System.out.println("Day 3, part I result: " + day03.deliverPresents(input));
     }
 
     private static void day04() {

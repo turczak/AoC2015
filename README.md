@@ -2,7 +2,7 @@
 |---------------------------------------------------------------------------------------------|----------------------------------------|--------------------|--------------------|
 | [Day 1](https://github.com/turczak/AoC2015/tree/main/src/main/java/com/adventofcode/day01)  | Not Quite Lisp                         | :heavy_check_mark: | :heavy_check_mark: |
 | [Day 2](https://github.com/turczak/AoC2015/tree/main/src/main/java/com/adventofcode/day02)  | I Was Told There Would Be No Math      | :heavy_check_mark: | :heavy_check_mark: |
-| [Day 3](https://github.com/turczak/AoC2015/tree/main/src/main/java/com/adventofcode/day03)  | Perfectly Spherical Houses in a Vacuum | :grey_question:    | :grey_question:    |
+| [Day 3](https://github.com/turczak/AoC2015/tree/main/src/main/java/com/adventofcode/day03)  | Perfectly Spherical Houses in a Vacuum | :heavy_check_mark: | :grey_question:    |
 | [Day 4](https://github.com/turczak/AoC2015/tree/main/src/main/java/com/adventofcode/day04)  | The Ideal Stocking Stuffer             | :heavy_check_mark: | :heavy_check_mark: |
 | [Day 5](https://github.com/turczak/AoC2015/tree/main/src/main/java/com/adventofcode/day05)  | Doesn't He Have Intern-Elves For This? | :grey_question:    | :grey_question:    |
 | [Day 6](https://github.com/turczak/AoC2015/tree/main/src/main/java/com/adventofcode/day06)  | Probably a Fire Hazard                 | :grey_question:    | :grey_question:    |
