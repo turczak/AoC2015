@@ -20,13 +20,14 @@ public class Day04 {
         }
     }
 
-    public int findLowestPossibleNumber(String requirement) {
+    public int findLowestPossibleNumber(String requirement) throws NoSuchAlgorithmException {
         int number = 1;
         while (true) {
             String hash = calculateMD5(secretKey + number);
-            if (hash.startsWith(requirement)) return number;
+            if (hash.startsWith(requirement)) {
+                return number;
+            }
             number++;
         }
-
     }
 }
