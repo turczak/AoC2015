@@ -10,7 +10,7 @@ public class Day01 {
                 .sum();
     }
 
-    private int checkFloor(Character character) {
+    private int checkFloor(char character) {
         return switch (character) {
             case '(' -> 1;
             case ')' -> -1;
