@@ -21,8 +21,7 @@ public class Day02 {
     public int getTotalLength(List<List<Integer>> listOfDimensions){
         int total = 0;
         for (List<Integer> dimensions : listOfDimensions){
-            List<Integer> list = Arrays.asList(dimensions.get(0), dimensions.get(1), dimensions.get(2));
-            list.sort(Comparator.naturalOrder());
+            List<Integer> list = dimensions.stream().sorted().toList();
             int length = (2 * list.get(0)) + (2 * list.get(1));
             int bow = dimensions.get(0) * dimensions.get(1) * dimensions.get(2);
             total += length + bow;
