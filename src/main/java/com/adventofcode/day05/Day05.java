@@ -4,40 +4,26 @@ import java.util.List;
 
 public class Day05 {
 
-    public int howManyStringsAreNice(List<String> list, MethodOfCheckingIfStringIsNice method) {
+    private static final String THREE_VOWELS_PATTERN = "(\\w*[aeiou]\\w*){3}";
+    private static final String ONE_LETTER_TWICE_IN_ROW_PATTERN = "\\b\\w*(\\w)\\1\\w*\\b";
+    private static final String NO_BANNED_WORDS_PATTERN = "^(?!.*(ab|cd|pq|xy)).*$";
+    private static final String PAIR_LETTERS_TWICE_WITHOUT_OVERLAPPING = ".*([a-zA-Z]{2}).*\\1.*";
+    private static final String A_B_A_PATTERN = ".*([a-z])\\w(\\1).*";
+
+    public int howManyStringsAreNice(List<String> list, CheckingMethod method) {
         return list.stream()
                 .filter(word -> isNice(word, method))
                 .toList()
                 .size();
     }
 
-    private boolean isContainsThreeVowels(String word) {
-        return word.matches("(\\w*[aeiou]\\w*){3}");
-    }
-
-    private boolean isContainsOneLetterTwiceInRow(String word) {
-        return word.matches("\\b\\w*(\\w)\\1\\w*\\b");
-    }
-
-    private boolean isContainBannedStrings(String word) {
-        return word.matches("^(?!.*(ab|cd|pq|xy)).*$");
-    }
-
-    private boolean isContainPairOfLettersTwiceWithoutOverlapping(String word) {
-        return word.matches(".*([a-zA-Z]{2}).*\\1.*");
-    }
-
-    //check if it contains at least one letter which repeats with exactly one letter between them
-    private boolean isContainsPatternAbA(String word) {
-        return word.matches(".*([a-z])\\w(\\1).*");
-    }
-
-    private boolean isNice(String word, MethodOfCheckingIfStringIsNice method) {
+    private boolean isNice(String word, CheckingMethod method) {
         return switch (method) {
             case STANDARD ->
-                    isContainsThreeVowels(word) && isContainsOneLetterTwiceInRow(word) && isContainBannedStrings(word);
-            case BETTER -> isContainPairOfLettersTwiceWithoutOverlapping(word) && isContainsPatternAbA(word);
+                    word.matches(THREE_VOWELS_PATTERN) && word.matches(ONE_LETTER_TWICE_IN_ROW_PATTERN) && word.matches(NO_BANNED_WORDS_PATTERN);
+            case BETTER -> word.matches(PAIR_LETTERS_TWICE_WITHOUT_OVERLAPPING) && word.matches(A_B_A_PATTERN);
             case null -> false;
         };
     }
+
 }
