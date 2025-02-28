@@ -4,6 +4,7 @@ import com.adventofcode.day01.Day01;
 import com.adventofcode.day02.Day02;
 import com.adventofcode.day03.Day03;
 import com.adventofcode.day04.Day04;
+import com.adventofcode.day05.CheckingMethod;
 import com.adventofcode.day05.Day05;
 import com.adventofcode.day08.Day08;
 
@@ -59,7 +60,8 @@ public class Main {
         File file = new File("src/main/resources/inputs/day03.txt");
         Day03 day03 = new Day03();
         List<Character> input = inputAsListOfCharacters(file);
-        System.out.println("Day 3, part I result: " + day03.deliverPresents(input));
+        System.out.println("Day 3, part I result: " + day03.deliverYourself(input));
+        System.out.println("Day 3, part II result: " + day03.deliverWithRobo(input));
     }
 
     private static void day04() {
@@ -72,7 +74,8 @@ public class Main {
         Day05 day05 = new Day05();
         File file = new File("src/main/resources/inputs/day05.txt");
         List<String> input = inputAsListOfStrings(file);
-        System.out.println("Day 5, part I result: " + day05.howManyStringsAreNice(input));
+        System.out.println("Day 5, part I result: " + day05.howManyStringsAreNice(input, CheckingMethod.STANDARD));
+        System.out.println("Day 5, part II result: " + day05.howManyStringsAreNice(input, CheckingMethod.BETTER));
     }
 
     private static void day08() {
