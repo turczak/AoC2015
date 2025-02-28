@@ -18,18 +18,18 @@ public class Day03 {
 
     public int deliverWithRobo(List<Character> instructions) {
         HashMap<Coordinates, Integer> visitedHouses = new HashMap<>();
-        boolean isSantaTurn = true;
+        boolean santaTurn = true;
         Coordinates santaCoords = new Coordinates(0, 0);
         Coordinates roboSantaCoords = new Coordinates(0, 0);
         for (char direction : instructions) {
-            if (isSantaTurn) {
+            if (santaTurn) {
                 santaCoords = move(santaCoords, direction);
                 visitedHouses.put(santaCoords, visitedHouses.getOrDefault(santaCoords, 0) + 1);
             } else {
                 roboSantaCoords = move(roboSantaCoords, direction);
                 visitedHouses.put(roboSantaCoords, visitedHouses.getOrDefault(roboSantaCoords, 0) + 1);
             }
-            isSantaTurn = !isSantaTurn;
+            santaTurn = !santaTurn;
         }
         return visitedHouses.size();
     }
