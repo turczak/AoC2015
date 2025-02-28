@@ -12,7 +12,9 @@ public class Day06 {
     private final List<Instruction> instructions = new ArrayList<>();
 
     public Day06(List<String> list) {
-        list.forEach(line -> instructions.add(new Instruction(line)));
+        list.stream()
+                .map(Instruction::fromString)
+                .forEach(instructions::add);
         for (int i = 0; i < 1000; i++) {
             for (int j = 0; j < 1000; j++) {
                 lights.put(new Coordinates(i, j), new Light());
