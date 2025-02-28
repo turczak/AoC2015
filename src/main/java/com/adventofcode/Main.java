@@ -58,7 +58,8 @@ public class Main {
         File file = new File("src/main/resources/inputs/day03.txt");
         Day03 day03 = new Day03();
         List<Character> input = inputAsListOfCharacters(file);
-        System.out.println("Day 3, part I result: " + day03.deliverPresents(input));
+        System.out.println("Day 3, part I result: " + day03.deliverYourself(input));
+        System.out.println("Day 3, part II result: " + day03.deliverWithRobo(input));
     }
 
     private static void day04() {
