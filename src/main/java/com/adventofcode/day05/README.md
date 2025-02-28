@@ -50,3 +50,7 @@ For example:
   twice.
 
 How many strings are nice under these new rules?
+
+Your puzzle answer was `53`.
+
+<code style="color : gold">Both parts of this puzzle are complete! They provide two gold stars: **</code>
