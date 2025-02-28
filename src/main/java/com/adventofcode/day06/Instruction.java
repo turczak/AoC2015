@@ -4,10 +4,18 @@ import com.adventofcode.day03.Coordinates;
 
 public record Instruction(String command, Coordinates start, Coordinates end) {
 
-    public Instruction(String instruction) {
-        this(parseCommand(instruction),
-                parseCoords(instruction, instruction.split(" ").length == 5 ? 2 : 1),
-                parseCoords(instruction, instruction.split(" ").length == 5 ? 4 : 3));
+    public static Instruction fromString(String instruction) {
+        String command = parseCommand(instruction);
+        Coordinates start;
+        Coordinates end;
+        if (instruction.split(" ").length == 5) {
+            start = parseCoords(instruction, 2);
+            end = parseCoords(instruction, 4);
+        } else {
+            start = parseCoords(instruction, 1);
+            end = parseCoords(instruction, 3);
+        }
+        return new Instruction(command, start, end);
     }
 
     private static String parseCommand(String instruction) {
