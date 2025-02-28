@@ -2,11 +2,12 @@ package com.adventofcode.day03;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Day03 {
 
     public int deliverYourself(List<Character> instructions) {
-        HashMap<Coordinates, Integer> visitedHouses = new HashMap<>();
+        Map<Coordinates, Integer> visitedHouses = new HashMap<>();
         Coordinates coords = new Coordinates(0, 0);
         visitedHouses.put(coords, visitedHouses.getOrDefault(coords, 0) + 1);
         for (char direction : instructions) {
@@ -17,7 +18,7 @@ public class Day03 {
     }
 
     public int deliverWithRobo(List<Character> instructions) {
-        HashMap<Coordinates, Integer> visitedHouses = new HashMap<>();
+        Map<Coordinates, Integer> visitedHouses = new HashMap<>();
         boolean santaTurn = true;
         Coordinates santaCoords = new Coordinates(0, 0);
         Coordinates roboSantaCoords = new Coordinates(0, 0);
