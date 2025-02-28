@@ -9,7 +9,7 @@ public class Day08 {
     }
 
     private int count(String line) {
-        int num_chars_mem = 0;
+        int amountOfCharsInMemory = 0;
         char[] chars = line.toCharArray();
         for (int i = 1; i < chars.length - 1; i++) {
             if (chars[i] == '\\') {
@@ -19,8 +19,8 @@ public class Day08 {
                     default -> throw new IllegalStateException("Unexpected value: " + chars[i + 1]);
                 }
             }
-            num_chars_mem++;
+            amountOfCharsInMemory++;
         }
-        return line.length() - num_chars_mem;
+        return line.length() - amountOfCharsInMemory;
     }
 }
