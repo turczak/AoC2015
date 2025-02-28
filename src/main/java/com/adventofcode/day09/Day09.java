@@ -45,11 +45,12 @@ public class Day09 {
             return;
         }
         String city = path.getLast();
-        HashMap<String, Integer> neighbors = graph.get(city);
-        if (neighbors == null) return;
+        Map<String, Integer> neighbors = graph.get(city);
+        if (neighbors == null) {
+            return;
+        }
 
-        for (String neighbor :
-                neighbors.keySet()) {
+        for (String neighbor : neighbors.keySet()) {
             if (!visited.contains(neighbor)) {
                 path.add(neighbor);
                 visited.add(neighbor);
