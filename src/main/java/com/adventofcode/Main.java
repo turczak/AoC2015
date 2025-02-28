@@ -3,10 +3,15 @@ package com.adventofcode;
 import com.adventofcode.day01.Day01;
 import com.adventofcode.day02.Day02;
 import com.adventofcode.day03.Day03;
+import com.adventofcode.day04.Day04;
+import com.adventofcode.day05.CheckingMethod;
+import com.adventofcode.day05.Day05;
 import com.adventofcode.day03.WorkType;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.nio.file.Files;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
@@ -14,9 +19,24 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        day01();
-        day02();
-        day03();
+        Scanner scanner = new Scanner(System.in);
+        while (true) {
+            System.out.println("Please choose day (1-25) to see results or enter 0 to exit.");
+            System.out.println("Your choice: ");
+            int choice = scanner.nextInt();
+            switch (choice) {
+                case 0 -> {
+                    scanner.close();
+                    return;
+                }
+                case 1 -> day01();
+                case 2 -> day02();
+                case 3 -> day03();
+                case 4 -> day04();
+                case 5 -> day05();
+                default -> System.out.println("Invalid option, please use number between 1 and 25.");
+            }
+        }
     }
 
     private static void day01() {
@@ -43,6 +63,20 @@ public class Main {
         System.out.println("Day 3, part II result: " + day03.deliverPresents(input, WorkType.DUO));
     }
 
+    private static void day04() {
+        Day04 day04 = new Day04();
+        System.out.println("Day 4, part I result: " + day04.findLowestPossibleNumber("00000"));
+        System.out.println("Day 4, part II result: " + day04.findLowestPossibleNumber("000000"));
+    }
+
+    private static void day05() {
+        Day05 day05 = new Day05();
+        File file = new File("src/main/resources/inputs/day05.txt");
+        List<String> input = inputAsListOfStrings(file);
+        System.out.println("Day 5, part I result: " + day05.howManyStringsAreNice(input, CheckingMethod.STANDARD));
+        System.out.println("Day 5, part II result: " + day05.howManyStringsAreNice(input, CheckingMethod.BETTER));
+    }
+
     private static List<Character> inputAsListOfCharacters(File file) {
         try {
             Scanner scanner = new Scanner(file);
@@ -64,6 +98,14 @@ public class Main {
                             .toList())
                     .toList();
         } catch (FileNotFoundException exception) {
+            throw new RuntimeException("File not found: " + file.getAbsolutePath(), exception);
+        }
+    }
+
+    private static List<String> inputAsListOfStrings(File file) {
+        try {
+            return Files.readAllLines(file.toPath());
+        } catch (IOException exception) {
             throw new RuntimeException("File not found: " + file.getAbsolutePath(), exception);
         }
     }
