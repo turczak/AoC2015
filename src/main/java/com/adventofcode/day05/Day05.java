@@ -11,9 +11,9 @@ public class Day05 {
     private static final String PAIR_LETTERS_TWICE_WITHOUT_OVERLAPPING = ".*([a-zA-Z]{2}).*\\1.*";
     private static final String A_B_A_PATTERN = ".*([a-z])\\w(\\1).*";
 
-    private static final Map<CheckingMethod, List<String>> RULES = Map.of(
-            CheckingMethod.STANDARD, List.of(THREE_VOWELS_PATTERN, ONE_LETTER_TWICE_IN_ROW_PATTERN, NO_BANNED_WORDS_PATTERN),
-            CheckingMethod.BETTER, List.of(PAIR_LETTERS_TWICE_WITHOUT_OVERLAPPING, A_B_A_PATTERN)
+    private static final Map<CheckingMethod, List<String>> RULES = Map.ofEntries(
+            Map.entry(CheckingMethod.STANDARD, List.of(THREE_VOWELS_PATTERN, ONE_LETTER_TWICE_IN_ROW_PATTERN, NO_BANNED_WORDS_PATTERN)),
+            Map.entry(CheckingMethod.BETTER, List.of(PAIR_LETTERS_TWICE_WITHOUT_OVERLAPPING, A_B_A_PATTERN))
     );
 
     public int howManyStringsAreNice(List<String> list, CheckingMethod method) {
