@@ -7,28 +7,22 @@ public class Day03 {
 
     private final HashMap<Coordinates, Integer> visitedHouses = new HashMap<>();
 
-    public int deliverPresents(List<Character> instructions, WorkType workType) {
-        Coordinates startingCoords = new Coordinates(0, 0);
+    public int deliverYourself(List<Character> instructions) {
         visitedHouses.clear();
-        visitedHouses.put(startingCoords, visitedHouses.getOrDefault(startingCoords, 0) + (workType.equals(WorkType.SOLO) ? 1 : 2));
-        switch (workType) {
-            case SOLO -> deliverYourself(instructions, startingCoords);
-            case DUO -> deliverWithRobo(instructions, startingCoords);
-        }
-        return visitedHouses.size();
-    }
-
-    private void deliverYourself(List<Character> instructions, Coordinates coords) {
+        Coordinates coords = new Coordinates(0, 0);
+        visitedHouses.put(coords, visitedHouses.getOrDefault(coords, 0) + 1);
         for (char direction : instructions) {
             coords = move(coords, direction);
             visitedHouses.put(coords, visitedHouses.getOrDefault(coords, 0) + 1);
         }
+        return visitedHouses.size();
     }
 
-    private void deliverWithRobo(List<Character> instructions, Coordinates coords) {
+    public int deliverWithRobo(List<Character> instructions) {
+        visitedHouses.clear();
         boolean isSantaTurn = true;
-        Coordinates santaCoords = coords;
-        Coordinates roboSantaCoords = coords;
+        Coordinates santaCoords = new Coordinates(0, 0);
+        Coordinates roboSantaCoords = new Coordinates(0, 0);
         for (char direction : instructions) {
             if (isSantaTurn) {
                 santaCoords = move(santaCoords, direction);
@@ -39,6 +33,7 @@ public class Day03 {
             }
             isSantaTurn = !isSantaTurn;
         }
+        return visitedHouses.size();
     }
 
     private Coordinates move(Coordinates coords, char direction) {
