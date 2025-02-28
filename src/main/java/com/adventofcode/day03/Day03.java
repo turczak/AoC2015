@@ -5,10 +5,8 @@ import java.util.List;
 
 public class Day03 {
 
-    private final HashMap<Coordinates, Integer> visitedHouses = new HashMap<>();
-
     public int deliverYourself(List<Character> instructions) {
-        visitedHouses.clear();
+        HashMap<Coordinates, Integer> visitedHouses = new HashMap<>();
         Coordinates coords = new Coordinates(0, 0);
         visitedHouses.put(coords, visitedHouses.getOrDefault(coords, 0) + 1);
         for (char direction : instructions) {
@@ -19,7 +17,7 @@ public class Day03 {
     }
 
     public int deliverWithRobo(List<Character> instructions) {
-        visitedHouses.clear();
+        HashMap<Coordinates, Integer> visitedHouses = new HashMap<>();
         boolean isSantaTurn = true;
         Coordinates santaCoords = new Coordinates(0, 0);
         Coordinates roboSantaCoords = new Coordinates(0, 0);
