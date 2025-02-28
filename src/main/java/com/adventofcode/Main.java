@@ -82,7 +82,8 @@ public class Main {
         Day08 day08 = new Day08();
         File file = new File("src/main/resources/inputs/day08.txt");
         List<String> input = inputAsListOfStrings(file);
-        System.out.println("Day 5, part I result: " + day08.calculate(input));
+        System.out.println("Day 5, part I result: " + day08.calculate(input, false));
+        System.out.println("Day 5, part II result: " + day08.calculate(input, true));
     }
 
     private static List<Character> inputAsListOfCharacters(File file) {
