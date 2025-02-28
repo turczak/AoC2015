@@ -9,18 +9,9 @@ public class Day08 {
     }
 
     private int count(String line) {
-        int amountOfCharsInMemory = 0;
-        char[] chars = line.toCharArray();
-        for (int i = 1; i < chars.length - 1; i++) {
-            if (chars[i] == '\\') {
-                switch (chars[i + 1]) {
-                    case '\\', '\"' -> i++;
-                    case 'x' -> i += 3;
-                    default -> throw new IllegalStateException("Unexpected value: " + chars[i + 1]);
-                }
-            }
-            amountOfCharsInMemory++;
-        }
-        return line.length() - amountOfCharsInMemory;
+        return line.length() - line.substring(1, line.length() - 1)
+                .replace("\\\\", "a")
+                .replace("\\\"", "b")
+                .replaceAll("\\\\x[0-9a-fA-F]{2}", "c").length();
     }
 }
