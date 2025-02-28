@@ -20,7 +20,11 @@ public record Instruction(String command, Coordinates start, Coordinates end) {
 
     private static String parseCommand(String instruction) {
         String[] split = instruction.split(" ");
-        return split.length == 5 ? split[0] + " " + split[1] : split[0];
+        if (instruction.contains("turn")) {
+            return split[0] + " " + split[1];
+        } else {
+            return split[0];
+        }
     }
 
     private static Coordinates parseCoords(String instruction, int index) {
