@@ -10,7 +10,7 @@
 | [Day 8](https://github.com/turczak/AoC2015/tree/main/src/main/java/com/adventofcode/day08)  | Matchsticks                            | :grey_question:    | :grey_question:    |
 | [Day 9](https://github.com/turczak/AoC2015/tree/main/src/main/java/com/adventofcode/day09)  | All in a Single Night                  | :grey_question:    | :grey_question:    |
 | [Day 10](https://github.com/turczak/AoC2015/tree/main/src/main/java/com/adventofcode/day10) | Elves Look, Elves Say                  | :grey_question:    | :grey_question:    |
-| [Day 11](https://github.com/turczak/AoC2015/tree/main/src/main/java/com/adventofcode/day11) | Corporate Policy                       | :grey_question:    | :grey_question:    |
+| [Day 11](https://github.com/turczak/AoC2015/tree/main/src/main/java/com/adventofcode/day11) | Corporate Policy                       | :heavy_check_mark: | :heavy_check_mark: |
 | [Day 12](https://github.com/turczak/AoC2015/tree/main/src/main/java/com/adventofcode/day12) | JSAbacusFramework.io                   | :grey_question:    | :grey_question:    |
 | [Day 13](https://github.com/turczak/AoC2015/tree/main/src/main/java/com/adventofcode/day13) | Knights of the Dinner Table            | :grey_question:    | :grey_question:    |
 | [Day 14](https://github.com/turczak/AoC2015/tree/main/src/main/java/com/adventofcode/day14) | Reindeer Olympics                      | :grey_question:    | :grey_question:    |
