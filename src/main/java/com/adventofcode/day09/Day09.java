@@ -13,7 +13,7 @@ public class Day09 {
     private List<String> cities;
     private SearchType searchType;
     private List<String> resultRoute = new ArrayList<>();
-    private int resultDistance;
+    private int resultDistance = 0;
 
     public int getResultDistance(List<String> inputList, SearchType searchType) {
         inputList.forEach(line -> {
@@ -25,7 +25,9 @@ public class Day09 {
         });
         this.cities = new ArrayList<>(graph.keySet());
         this.searchType = searchType;
-        resultDistance = (searchType.equals(SearchType.SHORTEST)) ? Integer.MAX_VALUE : Integer.MIN_VALUE;
+        if (searchType.equals(SearchType.SHORTEST)) {
+            resultDistance = Integer.MAX_VALUE;
+        }
         for (String city : cities) {
             List<String> path = new ArrayList<>();
             Set<String> visited = new HashSet<>();
