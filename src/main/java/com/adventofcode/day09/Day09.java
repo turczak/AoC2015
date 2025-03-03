@@ -62,13 +62,17 @@ public class Day09 {
     }
 
     public String getResultRoute() {
-        return searchType.equals(SearchType.SHORTEST) ?
-                "Shortest route = " + resultRoute +
-                        ", shortestDistance = " + resultDistance +
-                        '}' :
-                "Longest route = " + resultRoute +
-                        ", longestDistance = " + resultDistance +
-                        '}';
+        if (searchType.equals(SearchType.SHORTEST)) {
+            return String.format("Shortest route = %s, shortestDistance = %d",
+                    resultRoute,
+                    resultDistance
+            );
+        } else {
+            return String.format("Longest route = %s, longestDistance = %d",
+                    resultRoute,
+                    resultDistance
+            );
+        }
     }
 
     public int getResultDistance() {
