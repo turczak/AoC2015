@@ -6,6 +6,7 @@ import com.adventofcode.day03.Day03;
 import com.adventofcode.day04.Day04;
 import com.adventofcode.day05.CheckingMethod;
 import com.adventofcode.day05.Day05;
+import com.adventofcode.day07.Day07;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -33,6 +34,7 @@ public class Main {
                 case 3 -> day03();
                 case 4 -> day04();
                 case 5 -> day05();
+                case 7 -> day07();
                 default -> System.out.println("Invalid option, please use number between 1 and 25.");
             }
         }
@@ -74,6 +76,14 @@ public class Main {
         List<String> input = inputAsListOfStrings(file);
         System.out.println("Day 5, part I result: " + day05.howManyStringsAreNice(input, CheckingMethod.STANDARD));
         System.out.println("Day 5, part II result: " + day05.howManyStringsAreNice(input, CheckingMethod.BETTER));
+    }
+
+    private static void day07() {
+        Day07 day07 = new Day07();
+        File file = new File("src/main/resources/inputs/day07.txt");
+        List<String> input = inputAsListOfStrings(file);
+        System.out.println("Day 7, part I result: ");
+        day07.run(input);
     }
 
     private static List<Character> inputAsListOfCharacters(File file) {
