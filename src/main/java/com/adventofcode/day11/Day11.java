@@ -2,7 +2,7 @@ package com.adventofcode.day11;
 
 public class Day11 {
 
-    private static final String BANNED_LETTERS = "(?:(?![iol])[a-z])*";
+    private static final String BANNED_LETTERS = "[^iol]*";
     private static final String TWO_DIFFERENT_NON_OVERLAPPING_PAIRS = "(?:([a-z])\\1.*([a-z])\\2|[a-z]*([a-z])\\3[a-z]*){2,}";
 
     public String generateNewPassword(String oldPassword) {
