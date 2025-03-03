@@ -15,7 +15,7 @@ public class Day09 {
     private List<String> resultRoute = new ArrayList<>();
     private int resultDistance;
 
-    public void run(List<String> inputList, SearchType searchType) {
+    public int getResultDistance(List<String> inputList, SearchType searchType) {
         inputList.forEach(line -> {
             String[] split = line.split(SEPARATOR);
             graph.computeIfAbsent(split[0], k -> new HashMap<>())
@@ -33,6 +33,7 @@ public class Day09 {
             visited.add(city);
             findRoute(path, visited, 0);
         }
+        return resultDistance;
     }
 
     private void findRoute(List<String> path, Set<String> visited, int distance) {
@@ -73,9 +74,5 @@ public class Day09 {
                     resultDistance
             );
         }
-    }
-
-    public int getResultDistance() {
-        return resultDistance;
     }
 }

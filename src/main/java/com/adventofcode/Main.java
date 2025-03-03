@@ -83,11 +83,9 @@ public class Main {
         File file = new File("src/main/resources/inputs/day09.txt");
         List<String> input = inputAsListOfStrings(file);
         Day09 day09 = new Day09();
-        day09.run(input, SearchType.SHORTEST);
-        System.out.println("Day 9, part I result: " + day09.getResultDistance());
+        System.out.println("Day 9, part I result: " + day09.getResultDistance(input, SearchType.SHORTEST));
         System.out.println(day09.getResultRoute());
-        day09.run(input, SearchType.LONGEST);
-        System.out.println("Day 9, part II result: " + day09.getResultDistance());
+        System.out.println("Day 9, part II result: " + day09.getResultDistance(input, SearchType.LONGEST));
         System.out.println(day09.getResultRoute());
     }
 
