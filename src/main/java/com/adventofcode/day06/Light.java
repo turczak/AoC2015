@@ -1,16 +1,27 @@
 package com.adventofcode.day06;
 
-public record Light(boolean state, int brightness) {
+public class Light {
+    private boolean state;
+    private int brightness;
 
     public Light() {
-        this(false, 0);
+        this.state = false;
+        this.brightness = 0;
     }
 
-    public Light withState(boolean state) {
-        return new Light(state, brightness);
+    public boolean getState() {
+        return state;
     }
 
-    public Light withBrightness(int brightness) {
-        return new Light(state, brightness);
+    public int getBrightness() {
+        return brightness;
+    }
+
+    public void setState(boolean state) {
+        this.state = state;
+    }
+
+    public void setBrightness(int brightness) {
+        this.brightness = brightness;
     }
 }
