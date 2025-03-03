@@ -81,8 +81,8 @@ public class Main {
     private static void day06() {
         File file = new File("src/main/resources/inputs/day06.txt");
         List<String> input = inputAsListOfStrings(file);
-        Day06 day06 = new Day06(input);
-        System.out.println("Day 6, part I result: " + day06.howManyLightsAreLit());
+        Day06 day06 = new Day06();
+        System.out.println("Day 6, part I result: " + day06.run(input));
     }
 
     private static List<Character> inputAsListOfCharacters(File file) {

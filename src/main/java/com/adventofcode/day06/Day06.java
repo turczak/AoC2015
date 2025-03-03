@@ -10,7 +10,7 @@ import java.util.Map;
 public class Day06 {
     private final Map<Coordinates, Light> lights = new HashMap<>();
 
-    public Day06(List<String> list) {
+    public int run(List<String> list) {
         List<Instruction> instructions = new ArrayList<>();
         list.stream()
                 .map(Instruction::fromString)
@@ -21,6 +21,10 @@ public class Day06 {
             }
         }
         instructions.forEach(this::doInstruction);
+        return (int) lights.values()
+                .stream()
+                .filter(Light::state)
+                .count();
     }
 
     private void doInstruction(Instruction instruction) {
@@ -28,29 +32,19 @@ public class Day06 {
             for (int j = instruction.start().y(); j <= instruction.end().y(); j++) {
                 Coordinates coords = new Coordinates(i, j);
                 Light light = lights.get(coords);
-                switch (instruction.command()) {
-                    case "turn on" -> {
-                        light.setState(true);
-                        light.setBrightness(light.getBrightness() + 1);
-                    }
-                    case "turn off" -> {
-                        light.setState(false);
-                        light.setBrightness(light.getBrightness() - 1);
-                    }
-                    case "toggle" -> {
-                        light.setState(!light.getState());
-                        light.setBrightness(light.getBrightness() + 2);
-                    }
-                }
+                light = switch (instruction.command()) {
+                    case "turn on" -> light
+                            .withState(true)
+                            .withBrightness(light.brightness() + 1);
+                    case "turn off" -> light
+                            .withState(false)
+                            .withBrightness(light.brightness() - 1);
+                    default -> light
+                            .withState(!light.state())
+                            .withBrightness(light.brightness() + 2);
+                };
                 lights.put(coords, light);
             }
         }
-    }
-
-    public int howManyLightsAreLit() {
-        return (int) lights.values()
-                .stream()
-                .filter(Light::getState)
-                .count();
     }
 }
