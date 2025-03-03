@@ -6,16 +6,15 @@ public record Instruction(String command, Coordinates start, Coordinates end) {
 
     public static Instruction fromString(String instruction) {
         String command = parseCommand(instruction);
-        Coordinates start;
-        Coordinates end;
         if (instruction.split(" ").length == 5) {
-            start = parseCoords(instruction, 2);
-            end = parseCoords(instruction, 4);
+            return new Instruction(command,
+                    parseCoords(instruction, 2),
+                    parseCoords(instruction, 4));
         } else {
-            start = parseCoords(instruction, 1);
-            end = parseCoords(instruction, 3);
+            return new Instruction(command,
+                    parseCoords(instruction, 1),
+                    parseCoords(instruction, 3));
         }
-        return new Instruction(command, start, end);
     }
 
     private static String parseCommand(String instruction) {
