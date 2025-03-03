@@ -1,7 +1,7 @@
 package com.adventofcode.day07;
 
-import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
@@ -9,17 +9,14 @@ public class Day07 {
     private final Map<String, Character> wires = new HashMap<>();
 
     public int run(List<String> inputList) {
-        List<String> list = new ArrayList<>(inputList);
+        LinkedList<String> list = new LinkedList<>(inputList);
         while (!list.isEmpty()) {
-            for (String line : list) {
-                list = doCommand(list, line);
-            }
+            list.removeIf(this::doCommand);
         }
         return wires.get("a");
     }
 
-    private List<String> doCommand(List<String> list, String line) {
-        List<String> newList = new ArrayList<>(list);
+    private boolean doCommand(String line) {
         String[] split = line.split(" ");
         String key = "";
         char value = ' ';
@@ -55,12 +52,12 @@ public class Day07 {
                 key = split[4];
             }
         } else {
-            return newList;
+            return false;
         }
         if (!key.isBlank() && value != ' ') {
             wires.put(key, value);
-            newList.remove(line);
+            return true;
         }
-        return newList;
+        return false;
     }
 }
