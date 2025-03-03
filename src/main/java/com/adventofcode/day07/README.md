@@ -54,3 +54,12 @@ In little Bobby's kit's instructions booklet (provided as your puzzle input), wh
 a?
 
 To begin, [get your puzzle input](https://github.com/turczak/AoC2015/tree/main/src/main/resources/inputs/day07.txt).
+
+Your puzzle answer was `16076`.
+
+<code style="color : gold">The first half of this puzzle is complete! It provides one gold star: *</code>
+
+## --- Part Two ---
+
+Now, take the signal you got on wire `a`, override wire `b` to that signal, and reset the other wires (including wire
+`a`). What new signal is ultimately provided to wire `a`?

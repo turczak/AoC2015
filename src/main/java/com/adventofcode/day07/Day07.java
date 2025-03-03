@@ -8,14 +8,14 @@ import java.util.Map;
 public class Day07 {
     private final Map<String, Character> wires = new HashMap<>();
 
-    public void run(List<String> inputList) {
+    public int run(List<String> inputList) {
         List<String> list = new ArrayList<>(inputList);
         while (!list.isEmpty()) {
             for (String line : list) {
                 list = doCommand(list, line);
             }
         }
-        System.out.println(wires);
+        return wires.get("a");
     }
 
     private List<String> doCommand(List<String> list, String line) {
@@ -40,8 +40,10 @@ public class Day07 {
                     case "OR" -> (char) (wires.get(split[0]) | wires.get(split[2]));
                     default -> throw new IllegalStateException("Unexpected value: " + split[1]);
                 };
-                key = split[4];
+            } else if (split[0].matches("\\d+") && wires.containsKey(split[2])) {
+                value = (char) (Short.parseShort(split[0]) & wires.get(split[2]));
             }
+            key = split[4];
         } else if (line.contains("SHIFT")) {
             if (wires.containsKey(split[0])) {
                 char shiftValue = (char) Integer.parseInt(split[2]);
@@ -55,10 +57,9 @@ public class Day07 {
         } else {
             return newList;
         }
-        if (!key.isBlank()) {
+        if (!key.isBlank() && value != ' ') {
             wires.put(key, value);
             newList.remove(line);
-            System.out.println(key + " : " + (int) value);
         }
         return newList;
     }
