@@ -42,9 +42,7 @@ public class Day07 {
     }
 
     private boolean handleProvidedValue(String[] split) {
-        char value = getValue(split);
-        String key = split[2];
-        return updateWireIfValid(key, value);
+        return updateWireIfValid(split[2], getValue(split));
     }
 
     private char getValue(String[] split) {
