@@ -20,11 +20,14 @@ public class Day07 {
         String[] split = line.split(" ");
         if (split.length == 3) {
             return handleProvidedValue(split);
-        } else if (line.contains("NOT") && wires.containsKey(split[1])) {
+        }
+        if (line.contains("NOT") && wires.containsKey(split[1])) {
             return handleNot(line);
-        } else if (line.contains("AND") || line.contains("OR")) {
+        }
+        if (line.contains("AND") || line.contains("OR")) {
             return handleAndOr(split);
-        } else if (line.contains("SHIFT")) {
+        }
+        if (line.contains("SHIFT")) {
             return handleShift(split);
         } else {
             return false;
