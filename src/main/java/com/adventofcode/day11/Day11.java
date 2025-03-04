@@ -1,11 +1,10 @@
 package com.adventofcode.day11;
 
-import java.util.Arrays;
 import java.util.List;
 
 public class Day11 {
 
-    private static final List<Character> BANNED_LETTERS = Arrays.asList('i', 'o', 'l');
+    private static final List<Character> BANNED_LETTERS = List.of('i', 'o', 'l');
     private static final String TWO_DIFFERENT_NON_OVERLAPPING_PAIRS = "(?:([a-z])\\1.*([a-z])\\2|[a-z]*([a-z])\\3[a-z]*){2,}";
 
     public String generateNewPassword(String oldPassword) {
