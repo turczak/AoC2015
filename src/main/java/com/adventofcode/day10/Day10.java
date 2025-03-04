@@ -1,13 +1,15 @@
 package com.adventofcode.day10;
 
+import java.util.stream.Stream;
+
 public class Day10 {
 
     public int calculate(String original, int n) {
-        String result = original;
-        for (int i = 0; i < n; i++) {
-            result = lookAndSay(result);
-        }
-        return result.length();
+        return Stream.iterate(original, this::lookAndSay)
+                .limit(n + 1)
+                .reduce((oldWord, newWord) -> newWord)
+                .orElse(original)
+                .length();
     }
 
     private String lookAndSay(String input) {
