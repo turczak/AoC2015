@@ -57,39 +57,40 @@ public class Day07 {
 
     private boolean handleNot(String line) {
         String[] split = line.split(" ");
-        char value = (char) ~wires.get(split[1]);
-        String key = split[3];
-        return updateWireIfValid(key, value);
+        return updateWireIfValid(split[3], (char) ~wires.get(split[1]));
     }
 
     private boolean handleAndOr(String[] split) {
-        char value = ' ';
+        return updateWireIfValid(split[4], getValue2(split));
+    }
+
+    private char getValue2(String[] split) {
         if (wires.containsKey(split[0]) && wires.containsKey(split[2])) {
-            value = switch (split[1]) {
+            return switch (split[1]) {
                 case "AND" -> (char) (wires.get(split[0]) & wires.get(split[2]));
                 case "OR" -> (char) (wires.get(split[0]) | wires.get(split[2]));
                 default -> throw new IllegalStateException("Unexpected value: " + split[1]);
             };
         }
         if (split[0].matches("\\d+") && wires.containsKey(split[2])) {
-            value = (char) (Short.parseShort(split[0]) & wires.get(split[2]));
+            return (char) (Short.parseShort(split[0]) & wires.get(split[2]));
         }
-        String key = split[4];
-        return updateWireIfValid(key, value);
+        return ' ';
     }
 
     private boolean handleShift(String[] split) {
-        String key = "";
-        char value = ' ';
+        return updateWireIfValid(split[4], getValue3(split));
+    }
+
+    private char getValue3(String[] split) {
         if (wires.containsKey(split[0])) {
             char shiftValue = (char) Integer.parseInt(split[2]);
-            value = switch (split[1]) {
+            return switch (split[1]) {
                 case "LSHIFT" -> (char) (wires.get(split[0]) << shiftValue);
                 case "RSHIFT" -> (char) (wires.get(split[0]) >> shiftValue);
                 default -> throw new IllegalStateException("Unexpected value: " + split[1]);
             };
-            key = split[4];
         }
-        return updateWireIfValid(key, value);
+        return ' ';
     }
 }
