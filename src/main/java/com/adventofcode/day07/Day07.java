@@ -83,14 +83,14 @@ public class Day07 {
     }
 
     private char getValue3(String[] split) {
-        if (wires.containsKey(split[0])) {
-            char shiftValue = (char) Integer.parseInt(split[2]);
-            return switch (split[1]) {
-                case "LSHIFT" -> (char) (wires.get(split[0]) << shiftValue);
-                case "RSHIFT" -> (char) (wires.get(split[0]) >> shiftValue);
-                default -> throw new IllegalStateException("Unexpected value: " + split[1]);
-            };
+        if (!wires.containsKey(split[0])) {
+            return ' ';
         }
-        return ' ';
+        char shiftValue = (char) Integer.parseInt(split[2]);
+        return switch (split[1]) {
+            case "LSHIFT" -> (char) (wires.get(split[0]) << shiftValue);
+            case "RSHIFT" -> (char) (wires.get(split[0]) >> shiftValue);
+            default -> throw new IllegalStateException("Unexpected value: " + split[1]);
+        };
     }
 }
