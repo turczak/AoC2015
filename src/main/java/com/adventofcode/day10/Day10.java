@@ -23,7 +23,8 @@ public class Day10 {
                 counter = 1;
             }
         }
-        result.append(counter).append(input.charAt(input.length() - 1));
-        return result.toString();
+        return result.append(counter)
+                .append(input.charAt(input.length() - 1))
+                .toString();
     }
 }
