@@ -11,6 +11,7 @@ import com.adventofcode.day08.Day08;
 import com.adventofcode.day09.Day09;
 import com.adventofcode.day10.Day10;
 import com.adventofcode.day09.SearchType;
+import com.adventofcode.day11.Day11;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -42,6 +43,7 @@ public class Main {
                 case 8 -> day08();
                 case 9 -> day09();
                 case 10 -> day10();
+                case 11 -> day11();
                 default -> System.out.println("Invalid option, please use number between 1 and 25.");
             }
         }
@@ -115,6 +117,14 @@ public class Main {
         String input = "3113322113";
         System.out.println("Day 10, part I result: " + day10.calculate(input, 40));
         System.out.println("Day 10, part II result: " + day10.calculate(input, 50));
+    }
+
+    private static void day11() {
+        Day11 day11 = new Day11();
+        String input = "hepxcrrq";
+        String password = day11.generateNewPassword(input);
+        System.out.println("Day 11, part I result: " + password);
+        System.out.println("Day 11, part II result: " + day11.generateNewPassword(password));
     }
 
     private static List<Character> inputAsListOfCharacters(File file) {
