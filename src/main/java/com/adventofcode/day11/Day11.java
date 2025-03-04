@@ -1,8 +1,10 @@
 package com.adventofcode.day11;
 
+import java.util.stream.Stream;
+
 public class Day11 {
 
-    private static final char[] BANNED_LETTERS = {'i', 'o', 'l'};
+    private static final Character[] BANNED_LETTERS = {'i', 'o', 'l'};
     private static final String TWO_DIFFERENT_NON_OVERLAPPING_PAIRS = "(?:([a-z])\\1.*([a-z])\\2|[a-z]*([a-z])\\3[a-z]*){2,}";
 
     public String generateNewPassword(String oldPassword) {
@@ -30,14 +32,9 @@ public class Day11 {
     }
 
     private boolean checkIfContainsBannedLetters(String password) {
-        for (char letter : password.toCharArray()) {
-            for (char bannedLetter : BANNED_LETTERS) {
-                if (letter == bannedLetter) {
-                    return true;
-                }
-            }
-        }
-        return false;
+        return password.chars()
+                .anyMatch(letter -> Stream.of(BANNED_LETTERS)
+                        .anyMatch(bannedLetter -> bannedLetter == letter));
     }
 
     private String incrementPassword(String password) {
