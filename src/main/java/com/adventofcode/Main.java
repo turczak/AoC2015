@@ -7,6 +7,7 @@ import com.adventofcode.day04.Day04;
 import com.adventofcode.day05.CheckingMethod;
 import com.adventofcode.day05.Day05;
 import com.adventofcode.day06.Day06;
+import com.adventofcode.day07.Day07;
 import com.adventofcode.day08.Day08;
 import com.adventofcode.day09.Day09;
 import com.adventofcode.day10.Day10;
@@ -40,6 +41,7 @@ public class Main {
                 case 4 -> day04();
                 case 5 -> day05();
                 case 6 -> day06();
+                case 7 -> day07();
                 case 8 -> day08();
                 case 9 -> day09();
                 case 10 -> day10();
@@ -92,6 +94,13 @@ public class Main {
         List<String> input = inputAsListOfStrings(file);
         Day06 day06 = new Day06();
         System.out.println("Day 6, part I result: " + day06.run(input));
+    }
+
+    private static void day07() {
+        Day07 day07 = new Day07();
+        File file = new File("src/main/resources/inputs/day07.txt");
+        List<String> input = inputAsListOfStrings(file);
+        System.out.println("Day 7, part I result: " + day07.run(input));
     }
 
     private static void day08() {
