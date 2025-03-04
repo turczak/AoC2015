@@ -11,7 +11,6 @@ public class Day09 {
     private static final String SEPARATOR = "\\s*(to|=)\\s*";
     private final Map<String, HashMap<String, Integer>> graph = new HashMap<>();
     private List<String> cities;
-    private SearchType searchType;
     private List<String> resultRoute = new ArrayList<>();
     private int resultDistance = 0;
 
@@ -24,7 +23,6 @@ public class Day09 {
                     .put(split[0], Integer.parseInt(split[2]));
         });
         this.cities = new ArrayList<>(graph.keySet());
-        this.searchType = searchType;
         if (searchType.equals(SearchType.SHORTEST)) {
             resultDistance = Integer.MAX_VALUE;
         }
@@ -33,12 +31,12 @@ public class Day09 {
             Set<String> visited = new HashSet<>();
             path.add(city);
             visited.add(city);
-            findRoute(path, visited, 0);
+            findRoute(path, visited, 0, searchType);
         }
         return resultDistance;
     }
 
-    private void findRoute(List<String> path, Set<String> visited, int distance) {
+    private void findRoute(List<String> path, Set<String> visited, int distance, SearchType searchType) {
         if (path.size() == cities.size()) {
             if (searchType.equals(SearchType.SHORTEST) && distance < resultDistance ||
                     searchType.equals(SearchType.LONGEST) && distance > resultDistance) {
@@ -57,14 +55,14 @@ public class Day09 {
             if (!visited.contains(neighbor)) {
                 path.add(neighbor);
                 visited.add(neighbor);
-                findRoute(path, visited, distance + neighbors.get(neighbor));
+                findRoute(path, visited, distance + neighbors.get(neighbor), searchType);
                 path.removeLast();
                 visited.remove(neighbor);
             }
         }
     }
 
-    public String getResultRoute() {
+    public String getResultRoute(SearchType searchType) {
         if (searchType.equals(SearchType.SHORTEST)) {
             return String.format("Shortest route = %s, shortestDistance = %d",
                     resultRoute,
