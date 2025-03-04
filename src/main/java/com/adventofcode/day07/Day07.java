@@ -48,7 +48,8 @@ public class Day07 {
     private char getValue(String[] split) {
         if (split[0].matches("\\d+")) {
             return (char) Integer.parseInt(split[0]);
-        } else if (wires.containsKey(split[0])) {
+        }
+        if (wires.containsKey(split[0])) {
             return wires.get(split[0]);
         }
         return ' ';
@@ -69,7 +70,8 @@ public class Day07 {
                 case "OR" -> (char) (wires.get(split[0]) | wires.get(split[2]));
                 default -> throw new IllegalStateException("Unexpected value: " + split[1]);
             };
-        } else if (split[0].matches("\\d+") && wires.containsKey(split[2])) {
+        }
+        if (split[0].matches("\\d+") && wires.containsKey(split[2])) {
             value = (char) (Short.parseShort(split[0]) & wires.get(split[2]));
         }
         String key = split[4];
