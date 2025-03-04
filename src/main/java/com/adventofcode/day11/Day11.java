@@ -33,7 +33,6 @@ public class Day11 {
 
     private boolean checkIfContainsBannedLetters(String password) {
         return password.chars()
-                .mapToObj(letter -> (char) letter)
                 .anyMatch(BANNED_LETTERS::contains);
     }
 
