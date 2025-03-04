@@ -9,6 +9,7 @@ import com.adventofcode.day05.Day05;
 import com.adventofcode.day06.Day06;
 import com.adventofcode.day08.Day08;
 import com.adventofcode.day10.Day10;
+import com.adventofcode.day12.Day12;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -39,6 +40,7 @@ public class Main {
                 case 6 -> day06();
                 case 8 -> day08();
                 case 10 -> day10();
+                case 12 -> day12();
                 default -> System.out.println("Invalid option, please use number between 1 and 25.");
             }
         }
@@ -102,6 +104,12 @@ public class Main {
         String input = "3113322113";
         System.out.println("Day 10, part I result: " + day10.calculate(input, 40));
         System.out.println("Day 10, part II result: " + day10.calculate(input, 50));
+    }
+
+    private static void day12() {
+        File file = new File("src/main/resources/inputs/day12.json");
+        Day12 day12 = new Day12();
+        System.out.println("Day 12, part I result: " + day12.run(file));
     }
 
     private static List<Character> inputAsListOfCharacters(File file) {
