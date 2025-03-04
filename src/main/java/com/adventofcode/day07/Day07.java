@@ -29,9 +29,8 @@ public class Day07 {
         }
         if (line.contains("SHIFT")) {
             return handleShift(split);
-        } else {
-            return false;
         }
+        return false;
     }
 
     private boolean updateWireIfValid(String key, char value) {
