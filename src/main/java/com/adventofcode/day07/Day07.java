@@ -42,14 +42,18 @@ public class Day07 {
     }
 
     private boolean handleProvidedValue(String[] split) {
-        char value = ' ';
-        if (split[0].matches("\\d+")) {
-            value = (char) Integer.parseInt(split[0]);
-        } else if (wires.containsKey(split[0])) {
-            value = wires.get(split[0]);
-        }
+        char value = getValue(split);
         String key = split[2];
         return updateWireIfValid(key, value);
+    }
+
+    private char getValue(String[] split) {
+        if (split[0].matches("\\d+")) {
+            return (char) Integer.parseInt(split[0]);
+        } else if (wires.containsKey(split[0])) {
+            return wires.get(split[0]);
+        }
+        return ' ';
     }
 
     private boolean handleNot(String line) {
