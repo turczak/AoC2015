@@ -8,7 +8,7 @@
 | [Day 6](https://github.com/turczak/AoC2015/tree/main/src/main/java/com/adventofcode/day06)  | Probably a Fire Hazard                 | :heavy_check_mark: | :grey_question:    |
 | [Day 7](https://github.com/turczak/AoC2015/tree/main/src/main/java/com/adventofcode/day07)  | Some Assembly Required                 | :grey_question:    | :grey_question:    |
 | [Day 8](https://github.com/turczak/AoC2015/tree/main/src/main/java/com/adventofcode/day08)  | Matchsticks                            | :heavy_check_mark: | :heavy_check_mark: |
-| [Day 9](https://github.com/turczak/AoC2015/tree/main/src/main/java/com/adventofcode/day09)  | All in a Single Night                  | :grey_question:    | :grey_question:    |
+| [Day 9](https://github.com/turczak/AoC2015/tree/main/src/main/java/com/adventofcode/day09)  | All in a Single Night                  | :heavy_check_mark: | :heavy_check_mark: |
 | [Day 10](https://github.com/turczak/AoC2015/tree/main/src/main/java/com/adventofcode/day10) | Elves Look, Elves Say                  | :heavy_check_mark: | :heavy_check_mark: |
 | [Day 11](https://github.com/turczak/AoC2015/tree/main/src/main/java/com/adventofcode/day11) | Corporate Policy                       | :grey_question:    | :grey_question:    |
 | [Day 12](https://github.com/turczak/AoC2015/tree/main/src/main/java/com/adventofcode/day12) | JSAbacusFramework.io                   | :grey_question:    | :grey_question:    |
