@@ -8,12 +8,25 @@ import java.util.Map;
 public class Day07 {
     private final Map<String, Character> wires = new HashMap<>();
 
-    public int run(List<String> inputList) {
-        LinkedList<String> list = new LinkedList<>(inputList);
-        while (!list.isEmpty()) {
-            list.removeIf(this::doCommand);
+    public int run(List<String> input) {
+        LinkedList<String> instructions = new LinkedList<>(input);
+        while (!instructions.isEmpty()) {
+            instructions.removeIf(this::doCommand);
         }
         return wires.get("a");
+    }
+
+    public int runPart2(List<String> input) {
+        char value = wires.get("a");
+        wires.clear();
+        wires.put("b", value);
+        LinkedList<String> instructions = new LinkedList<>(input);
+        instructions.removeIf(line -> isToRemove(line.split(" ")));
+        return run(instructions);
+    }
+
+    private boolean isToRemove(String[] split) {
+        return split.length == 3 && split[2].matches("b");
     }
 
     private boolean doCommand(String line) {
