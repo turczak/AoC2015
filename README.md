@@ -5,12 +5,12 @@
 | [Day 3](https://github.com/turczak/AoC2015/tree/main/src/main/java/com/adventofcode/day03)  | Perfectly Spherical Houses in a Vacuum | :heavy_check_mark: | :heavy_check_mark: |
 | [Day 4](https://github.com/turczak/AoC2015/tree/main/src/main/java/com/adventofcode/day04)  | The Ideal Stocking Stuffer             | :heavy_check_mark: | :heavy_check_mark: |
 | [Day 5](https://github.com/turczak/AoC2015/tree/main/src/main/java/com/adventofcode/day05)  | Doesn't He Have Intern-Elves For This? | :heavy_check_mark: | :heavy_check_mark: |
-| [Day 6](https://github.com/turczak/AoC2015/tree/main/src/main/java/com/adventofcode/day06)  | Probably a Fire Hazard                 | :heavy_check_mark: | :grey_question:    |
-| [Day 7](https://github.com/turczak/AoC2015/tree/main/src/main/java/com/adventofcode/day07)  | Some Assembly Required                 | :grey_question:    | :grey_question:    |
+| [Day 6](https://github.com/turczak/AoC2015/tree/main/src/main/java/com/adventofcode/day06)  | Probably a Fire Hazard                 | :heavy_check_mark: | :heavy_check_mark: |
+| [Day 7](https://github.com/turczak/AoC2015/tree/main/src/main/java/com/adventofcode/day07)  | Some Assembly Required                 | :heavy_check_mark: | :heavy_check_mark: |
 | [Day 8](https://github.com/turczak/AoC2015/tree/main/src/main/java/com/adventofcode/day08)  | Matchsticks                            | :heavy_check_mark: | :heavy_check_mark: |
-| [Day 9](https://github.com/turczak/AoC2015/tree/main/src/main/java/com/adventofcode/day09)  | All in a Single Night                  | :grey_question:    | :grey_question:    |
+| [Day 9](https://github.com/turczak/AoC2015/tree/main/src/main/java/com/adventofcode/day09)  | All in a Single Night                  | :heavy_check_mark: | :heavy_check_mark: |
 | [Day 10](https://github.com/turczak/AoC2015/tree/main/src/main/java/com/adventofcode/day10) | Elves Look, Elves Say                  | :heavy_check_mark: | :heavy_check_mark: |
-| [Day 11](https://github.com/turczak/AoC2015/tree/main/src/main/java/com/adventofcode/day11) | Corporate Policy                       | :grey_question:    | :grey_question:    |
+| [Day 11](https://github.com/turczak/AoC2015/tree/main/src/main/java/com/adventofcode/day11) | Corporate Policy                       | :heavy_check_mark: | :heavy_check_mark: |
 | [Day 12](https://github.com/turczak/AoC2015/tree/main/src/main/java/com/adventofcode/day12) | JSAbacusFramework.io                   | :heavy_check_mark: | :grey_question:    |
 | [Day 13](https://github.com/turczak/AoC2015/tree/main/src/main/java/com/adventofcode/day13) | Knights of the Dinner Table            | :grey_question:    | :grey_question:    |
 | [Day 14](https://github.com/turczak/AoC2015/tree/main/src/main/java/com/adventofcode/day14) | Reindeer Olympics                      | :grey_question:    | :grey_question:    |

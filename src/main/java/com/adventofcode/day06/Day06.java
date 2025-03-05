@@ -10,7 +10,7 @@ import java.util.Map;
 public class Day06 {
     private final Map<Coordinates, Light> lights = new HashMap<>();
 
-    public int run(List<String> list) {
+    public void run(List<String> list) {
         List<Instruction> instructions = new ArrayList<>();
         list.stream()
                 .map(Instruction::fromString)
@@ -21,10 +21,20 @@ public class Day06 {
             }
         }
         instructions.forEach(this::doInstruction);
+    }
+
+    public int howManyLightsAreLit() {
         return (int) lights.values()
                 .stream()
                 .filter(Light::state)
                 .count();
+    }
+
+    public int totalBrightness() {
+        return lights.values()
+                .stream()
+                .mapToInt(Light::brightness)
+                .sum();
     }
 
     private void doInstruction(Instruction instruction) {
@@ -36,9 +46,11 @@ public class Day06 {
                     case "turn on" -> light
                             .withState(true)
                             .withBrightness(light.brightness() + 1);
-                    case "turn off" -> light
-                            .withState(false)
-                            .withBrightness(light.brightness() - 1);
+                    case "turn off" -> {
+                        int newBrightness = light.brightness() - 1;
+                        yield light.withState(false)
+                                .withBrightness(Math.max(newBrightness, 0));
+                    }
                     default -> light
                             .withState(!light.state())
                             .withBrightness(light.brightness() + 2);
