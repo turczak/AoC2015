@@ -144,7 +144,7 @@ public class Main {
     private static void day12() {
         File file = new File("src/main/resources/inputs/day12.json");
         Day12 day12 = new Day12(file);
-        System.out.println("Day 12, part I result: " + day12.run());
+        System.out.println("Day 12, part I result: " + day12.calculateSum());
     }
 
     private static List<Character> inputAsListOfCharacters(File file) {

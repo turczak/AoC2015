@@ -18,18 +18,14 @@ public class Day12 {
         }
     }
 
-    public int run() {
-        return calculateSum(parser);
-    }
-
-    private int calculateSum(JsonParser parser) {
+    public int calculateSum() {
         int sum = 0;
         try {
             while (parser.nextToken() != null) {
                 JsonToken token = parser.getCurrentToken();
                 switch (token) {
                     case JsonToken.VALUE_NUMBER_INT -> sum += parser.getIntValue();
-                    case JsonToken.START_ARRAY, JsonToken.START_OBJECT -> sum += calculateSum(parser);
+                    case JsonToken.START_ARRAY, JsonToken.START_OBJECT -> sum += calculateSum();
                 }
             }
             return sum;
