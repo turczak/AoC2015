@@ -147,6 +147,7 @@ public class Main {
         Day14 day14 = new Day14(input);
         day14.run(2503);
         System.out.println("Day 14, part I result: " + day14.getMaxDistance());
+        System.out.println("Day 14, part II result: " + day14.getMaxScore());
     }
 
     private static List<Character> inputAsListOfCharacters(File file) {
