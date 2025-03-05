@@ -143,8 +143,8 @@ public class Main {
 
     private static void day12() {
         File file = new File("src/main/resources/inputs/day12.json");
-        Day12 day12 = new Day12();
-        System.out.println("Day 12, part I result: " + day12.run(file));
+        Day12 day12 = new Day12(file);
+        System.out.println("Day 12, part I result: " + day12.run());
     }
 
     private static List<Character> inputAsListOfCharacters(File file) {
