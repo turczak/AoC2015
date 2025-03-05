@@ -49,3 +49,7 @@ For example:
 
 - `turn on 0,0 through 0,0` would increase the total brightness by `1`.
 - `toggle 0,0 through 999,999` would increase the total brightness by `2000000`.
+
+Your puzzle answer was `17836115`.
+
+<code style="color : gold">Both parts of this puzzle are complete! They provide two gold stars: **</code>

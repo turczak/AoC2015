@@ -93,7 +93,9 @@ public class Main {
         File file = new File("src/main/resources/inputs/day06.txt");
         List<String> input = inputAsListOfStrings(file);
         Day06 day06 = new Day06();
-        System.out.println("Day 6, part I result: " + day06.run(input));
+        day06.run(input);
+        System.out.println("Day 6, part I result: " + day06.howManyLightsAreLit());
+        System.out.println("Day 6, part II result: " + day06.totalBrightness());
     }
 
     private static void day07() {
