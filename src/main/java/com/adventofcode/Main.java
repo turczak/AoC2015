@@ -101,9 +101,7 @@ public class Main {
         File file = new File("src/main/resources/inputs/day07.txt");
         List<String> input = inputAsListOfStrings(file);
         System.out.println("Day 7, part I result: " + day07.run(input));
-        File file2 = new File("src/main/resources/inputs/day07_2.txt");
-        List<String> input2 = inputAsListOfStrings(file2);
-        System.out.println("Day 7, part II result: " + day07.runPart2(input2));
+        System.out.println("Day 7, part II result: " + day07.runPart2(input));
     }
 
     private static void day08() {
