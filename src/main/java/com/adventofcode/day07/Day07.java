@@ -16,6 +16,13 @@ public class Day07 {
         return wires.get("a");
     }
 
+    public int runPart2(List<String> inputList) {
+        char value = wires.get("a");
+        wires.clear();
+        wires.put("b", value);
+        return run(inputList);
+    }
+
     private boolean doCommand(String line) {
         String[] split = line.split(" ");
         if (split.length == 3) {

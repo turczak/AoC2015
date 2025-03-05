@@ -10,8 +10,8 @@ import com.adventofcode.day06.Day06;
 import com.adventofcode.day07.Day07;
 import com.adventofcode.day08.Day08;
 import com.adventofcode.day09.Day09;
-import com.adventofcode.day10.Day10;
 import com.adventofcode.day09.SearchType;
+import com.adventofcode.day10.Day10;
 import com.adventofcode.day11.Day11;
 
 import java.io.File;
@@ -101,6 +101,9 @@ public class Main {
         File file = new File("src/main/resources/inputs/day07.txt");
         List<String> input = inputAsListOfStrings(file);
         System.out.println("Day 7, part I result: " + day07.run(input));
+        File file2 = new File("src/main/resources/inputs/day07_2.txt");
+        List<String> input2 = inputAsListOfStrings(file2);
+        System.out.println("Day 7, part II result: " + day07.runPart2(input2));
     }
 
     private static void day08() {
