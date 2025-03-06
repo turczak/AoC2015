@@ -3,7 +3,7 @@ package com.adventofcode.day14;
 public class Reindeer {
     private final int speed;
     private final int sprintTime;
-    private final int cycle;
+    private final int restTime;
     private int score = 0;
     private int traveledDistance = 0;
     private boolean ready = true;
@@ -11,24 +11,25 @@ public class Reindeer {
     public Reindeer(int speed, int sprintTime, int restTime) {
         this.speed = speed;
         this.sprintTime = sprintTime;
-        cycle = sprintTime + restTime;
+        this.restTime = restTime;
     }
 
     public int getTraveledDistance() {
         return traveledDistance;
     }
 
-    public void move() {
-        if (check()) {
+    public void move(int time) {
+        if (check(time)) {
             traveledDistance += speed;
         }
     }
 
-    private boolean check() {
+    private boolean check(int time) {
+        int cycle = sprintTime + restTime;
         if (ready) {
-            ready = Day14.time % (cycle) < sprintTime;
+            ready = time % (cycle) < sprintTime;
         }
-        if (Day14.time % (cycle) == 0) {
+        if (time % (cycle) == 0) {
             ready = true;
         }
         return ready;

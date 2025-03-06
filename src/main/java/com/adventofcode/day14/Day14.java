@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Set;
 
 public class Day14 {
-    public static int time = 0;
     private final Set<Reindeer> reindeerSet = new HashSet<>();
     private final Set<Reindeer> leaders = new HashSet<>();
 
@@ -14,10 +13,11 @@ public class Day14 {
     }
 
     public void run() {
+        int time = 0;
         while (time < 2503) {
             int maxDistanceForTurn = 0;
             for (Reindeer reindeer : reindeerSet) {
-                reindeer.move();
+                reindeer.move(time);
                 maxDistanceForTurn = getMaxDistanceForTurn(reindeer,
                         maxDistanceForTurn);
             }
