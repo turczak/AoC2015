@@ -4,9 +4,9 @@ public class Reindeer {
     private final int speed;
     private final int sprintTime;
     private final int restTime;
-    private int score = 0;
-    private int traveledDistance = 0;
-    private boolean ready = true;
+    private int score;
+    private int traveledDistance;
+    private boolean ready = false;
 
     public Reindeer(int speed, int sprintTime, int restTime) {
         this.speed = speed;
