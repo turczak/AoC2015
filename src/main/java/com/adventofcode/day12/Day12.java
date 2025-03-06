@@ -8,24 +8,14 @@ import java.io.File;
 import java.io.IOException;
 
 public class Day12 {
-    private final JsonParser parser;
+    private final JsonFactory factory = new JsonFactory();
 
-    public Day12(File file) {
-        try {
-            parser = new JsonFactory().createParser(file);
-        } catch (IOException exception) {
-            throw new RuntimeException(exception);
-        }
-    }
-
-    public int calculateSum() {
-        int sum = 0;
-        try {
+    public int calculateSum(File file) {
+        try (JsonParser parser = factory.createParser(file)) {
+            int sum = 0;
             while (parser.nextToken() != null) {
-                JsonToken token = parser.getCurrentToken();
-                switch (token) {
-                    case JsonToken.VALUE_NUMBER_INT -> sum += parser.getIntValue();
-                    case JsonToken.START_ARRAY, JsonToken.START_OBJECT -> sum += calculateSum();
+                if (parser.getCurrentToken() == JsonToken.VALUE_NUMBER_INT) {
+                    sum += parser.getIntValue();
                 }
             }
             return sum;
