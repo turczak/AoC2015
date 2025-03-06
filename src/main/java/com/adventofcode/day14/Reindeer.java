@@ -19,21 +19,19 @@ public class Reindeer {
     }
 
     public void move() {
-        check();
-        if (ready) {
+        if (check()) {
             traveledDistance += speed;
         }
     }
 
-    private void check() {
-        if (Day14.time != 0) {
-            if (ready) {
-                ready = Day14.time % (cycle) < sprintTime;
-            }
-            if (Day14.time % (cycle) == 0) {
-                ready = true;
-            }
+    private boolean check() {
+        if (ready) {
+            ready = Day14.time % (cycle) < sprintTime;
         }
+        if (Day14.time % (cycle) == 0) {
+            ready = true;
+        }
+        return ready;
     }
 
     public void addScore() {
