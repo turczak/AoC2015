@@ -6,7 +6,7 @@ import java.util.Set;
 
 public class Day14 {
     public static int time = 0;
-    private final Set<Reindeer> reindeer = new HashSet<>();
+    private final Set<Reindeer> reindeerSet = new HashSet<>();
     private final Set<Reindeer> leaders = new HashSet<>();
 
     public Day14(List<String> input) {
@@ -16,7 +16,7 @@ public class Day14 {
     public void run() {
         while (time < 2503) {
             int maxDistanceForTurn = 0;
-            for (Reindeer reindeer : reindeer) {
+            for (Reindeer reindeer : reindeerSet) {
                 reindeer.move();
                 maxDistanceForTurn = getMaxDistanceForTurn(reindeer,
                         maxDistanceForTurn);
@@ -40,14 +40,14 @@ public class Day14 {
     }
 
     public int getMaxDistance() {
-        return reindeer.stream()
+        return reindeerSet.stream()
                 .mapToInt(Reindeer::getTraveledDistance)
                 .max()
                 .orElse(0);
     }
 
     public int getMaxScore() {
-        return reindeer.stream()
+        return reindeerSet.stream()
                 .mapToInt(Reindeer::getScore)
                 .max()
                 .orElse(0);
@@ -59,6 +59,6 @@ public class Day14 {
                 Integer.parseInt(split[6]),
                 Integer.parseInt(split[13])
         );
-        this.reindeer.add(reindeer);
+        this.reindeerSet.add(reindeer);
     }
 }
