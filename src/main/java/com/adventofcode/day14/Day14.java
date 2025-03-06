@@ -13,8 +13,8 @@ public class Day14 {
         input.forEach(this::populate);
     }
 
-    public void run(int raceDuration) {
-        while (raceDuration > 0) {
+    public void run() {
+        while (time < 2503) {
             int maxDistanceForTurn = 0;
             for (Reindeer reindeer : reindeer) {
                 reindeer.move();
@@ -23,7 +23,6 @@ public class Day14 {
             }
             leaders.forEach(Reindeer::addScore);
             time++;
-            raceDuration--;
         }
     }
 

@@ -145,7 +145,7 @@ public class Main {
         File file = new File("src/main/resources/inputs/day14.txt");
         List<String> input = inputAsListOfStrings(file);
         Day14 day14 = new Day14(input);
-        day14.run(2503);
+        day14.run();
         System.out.println("Day 14, part I result: " + day14.getMaxDistance());
         System.out.println("Day 14, part II result: " + day14.getMaxScore());
     }
