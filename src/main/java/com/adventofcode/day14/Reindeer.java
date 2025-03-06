@@ -26,12 +26,7 @@ public class Reindeer {
 
     private boolean check(int time) {
         int cycle = sprintTime + restTime;
-        if (ready) {
-            ready = time % (cycle) < sprintTime;
-        }
-        if (time % (cycle) == 0) {
-            ready = true;
-        }
+        ready = ready && (time % (cycle) < sprintTime) || (time % (cycle) == 0);
         return ready;
     }
 
