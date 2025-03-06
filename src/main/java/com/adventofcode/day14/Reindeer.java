@@ -6,7 +6,6 @@ public class Reindeer {
     private final int restTime;
     private int score;
     private int traveledDistance;
-    private boolean ready = false;
 
     public Reindeer(int speed, int sprintTime, int restTime) {
         this.speed = speed;
@@ -26,8 +25,7 @@ public class Reindeer {
 
     private boolean check(int time) {
         int cycle = sprintTime + restTime;
-        ready = ready && (time % (cycle) < sprintTime) || (time % (cycle) == 0);
-        return ready;
+        return (time % (cycle) < sprintTime) || (time % (cycle) == 0);
     }
 
     public void addScore() {
