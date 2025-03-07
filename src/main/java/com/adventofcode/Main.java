@@ -13,6 +13,7 @@ import com.adventofcode.day09.Day09;
 import com.adventofcode.day09.SearchType;
 import com.adventofcode.day10.Day10;
 import com.adventofcode.day11.Day11;
+import com.adventofcode.day12.Day12;
 import com.adventofcode.day14.Day14;
 
 import java.io.File;
@@ -47,6 +48,7 @@ public class Main {
                 case 9 -> day09();
                 case 10 -> day10();
                 case 11 -> day11();
+                case 12 -> day12();
                 case 14 -> day14();
                 default -> System.out.println("Invalid option, please use number between 1 and 25.");
             }
@@ -139,6 +141,12 @@ public class Main {
         String password = day11.generateNewPassword(input);
         System.out.println("Day 11, part I result: " + password);
         System.out.println("Day 11, part II result: " + day11.generateNewPassword(password));
+    }
+
+    private static void day12() {
+        File file = new File("src/main/resources/inputs/day12.json");
+        Day12 day12 = new Day12();
+        System.out.println("Day 12, part I result: " + day12.calculateSum(file));
     }
 
     private static void day14() {
