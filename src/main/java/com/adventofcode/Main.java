@@ -154,7 +154,6 @@ public class Main {
         List<String> input = inputAsListOfStrings(file);
         Day15 day15 = new Day15(input);
         System.out.println(day15.run());
-    }
 
     private static List<Character> inputAsListOfCharacters(File file) {
         try {
