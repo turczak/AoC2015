@@ -56,9 +56,13 @@ public class Recipe {
             totalCalories += key.calories() * entry.getValue();
         }
 
-        if (totalCapacity <= 0 || totalDurability <= 0 || totalFlavor <= 0 || totalTexture <= 0) return 0;
-        else if (totalCalories == 500) return totalCapacity * totalDurability * totalFlavor * totalTexture;
-        else return 0;
+        if (totalCapacity <= 0 || totalDurability <= 0 || totalFlavor <= 0 || totalTexture <= 0) {
+            return 0;
+        } else if (totalCalories == 500) {
+            return totalCapacity * totalDurability * totalFlavor * totalTexture;
+        } else {
+            return 0;
+        }
     }
 
     private HashMap<Ingredient, Integer> convertRecipe(List<Ingredient> recipeAsList) {
