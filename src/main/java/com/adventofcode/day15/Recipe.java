@@ -10,20 +10,16 @@ import java.util.stream.Collectors;
 
 public class Recipe {
     private final int AMOUNT_OF_TEASPOONS = 100;
-    private Map<Ingredient, Integer> bestRecipe;
-    private Integer maxScore = 0;
-    private Integer generatedRecipes = 0;
-
-    public Recipe() {
-        bestRecipe = new HashMap<>(AMOUNT_OF_TEASPOONS);
-    }
+    private Map<Ingredient, Integer> bestRecipe = new HashMap<>(AMOUNT_OF_TEASPOONS);
+    private int maxScore = 0;
+    private int generatedRecipes = 0;
 
     private void generateAllRecipes(Ingredient[] chosen, List<Ingredient> arr,
                                     int index, int start, int end) {
         if (index == AMOUNT_OF_TEASPOONS) {
             generatedRecipes++;
             HashMap<Ingredient, Integer> recipe = convertRecipe(Arrays.asList(chosen).subList(0, AMOUNT_OF_TEASPOONS));
-            Integer score = calculateScore(recipe);
+            int score = calculateScore(recipe);
             if (score > maxScore) {
                 maxScore = score;
                 bestRecipe = recipe;
