@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Set;
 
 public class Day15 {
-    public static final int MAX_TEASPOONS = 100;
     private static final String REGEX = ": capacity |, durability |, flavor |, texture |, calories ";
     private final Set<Ingredient> ingredients = new HashSet<>();
 
