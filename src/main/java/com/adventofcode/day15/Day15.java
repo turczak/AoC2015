@@ -3,13 +3,21 @@ package com.adventofcode.day15;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Day15 {
-    private static final String REGEX = ": capacity |, durability |, flavor |, texture |, calories ";
+    private final Pattern pattern = Pattern.compile(
+            "^(?<name>\\w+): " +
+                    "capacity (?<capacity>-?\\d+), " +
+                    "durability (?<durability>-?\\d+), " +
+                    "flavor (?<flavor>-?\\d+), " +
+                    "texture (?<texture>-?\\d+), " +
+                    "calories (?<calories>-?\\d+)");
     private final Set<Ingredient> ingredients = new HashSet<>();
 
     public Day15(List<String> input) {
-        input.forEach(line -> addIngredient((line.split(REGEX))));
+        input.forEach(this::addIngredient);
     }
 
     public int run() {
@@ -19,12 +27,16 @@ public class Day15 {
         return 0;
     }
 
-    private void addIngredient(String[] split) {
-        ingredients.add(new Ingredient(split[0],
-                Integer.parseInt(split[1]),
-                Integer.parseInt(split[2]),
-                Integer.parseInt(split[3]),
-                Integer.parseInt(split[4]),
-                Integer.parseInt(split[5])));
+    private void addIngredient(String line) {
+        Matcher matcher = pattern.matcher(line);
+        if (matcher.find()) {
+            String name = matcher.group("name");
+            int capacity = Integer.parseInt(matcher.group("capacity"));
+            int durability = Integer.parseInt(matcher.group("durability"));
+            int flavor = Integer.parseInt(matcher.group("flavor"));
+            int texture = Integer.parseInt(matcher.group("texture"));
+            int calories = Integer.parseInt(matcher.group("calories"));
+            ingredients.add(new Ingredient(name, capacity, durability, flavor, texture, calories));
+        }
     }
 }
