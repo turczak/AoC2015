@@ -18,7 +18,7 @@ public class Recipe {
                                     int index, int start, int end) {
         if (index == AMOUNT_OF_TEASPOONS) {
             generatedRecipes++;
-            HashMap<Ingredient, Integer> recipe = convertRecipe(Arrays.asList(chosen).subList(0, AMOUNT_OF_TEASPOONS));
+            Map<Ingredient, Integer> recipe = convertRecipe(Arrays.asList(chosen).subList(0, AMOUNT_OF_TEASPOONS));
             int score = calculateScore(recipe);
             if (score > maxScore) {
                 maxScore = score;
@@ -38,7 +38,7 @@ public class Recipe {
         generateAllRecipes(chosen, new ArrayList<>(ingredients), 0, 0, n - 1);
     }
 
-    private Integer calculateScore(HashMap<Ingredient, Integer> recipe) {
+    private Integer calculateScore(Map<Ingredient, Integer> recipe) {
         int totalCapacity = 0;
         int totalDurability = 0;
         int totalFlavor = 0;
@@ -63,7 +63,7 @@ public class Recipe {
         return 0;
     }
 
-    private HashMap<Ingredient, Integer> convertRecipe(List<Ingredient> recipeAsList) {
+    private Map<Ingredient, Integer> convertRecipe(List<Ingredient> recipeAsList) {
         return recipeAsList.stream()
                 .collect(Collectors.toMap(
                         ingredient -> ingredient,
