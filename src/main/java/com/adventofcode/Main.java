@@ -163,6 +163,7 @@ public class Main {
         List<Integer> input = inputAsListOfIntegers(file);
         Day17 day17 = new Day17(input, 150);
         day17.run();
+        System.out.println("Day 17, part I & II results: " + day17);
     }
 
     private static List<Character> inputAsListOfCharacters(File file) {
