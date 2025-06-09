@@ -16,6 +16,7 @@ import com.adventofcode.day11.Day11;
 import com.adventofcode.day12.Day12;
 import com.adventofcode.day15.Day15;
 import com.adventofcode.day16.Day16;
+import com.adventofcode.day17.Day17;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -53,6 +54,7 @@ public class Main {
                 case 12 -> day12();
                 case 15 -> day15();
                 case 16 -> day16();
+                case 17 -> day17();
                 default -> System.out.println("Invalid option, please use number between 1 and 25.");
             }
         }
@@ -177,6 +179,15 @@ public class Main {
         System.out.println("Day 16, part I: " + day16.partI());
         System.out.println("Day 16, part II: " + day16.partII());
     }
+    }
+
+    private static void day17() {
+        File file = new File("src/main/resources/inputs/day17.txt");
+        List<Integer> input = inputAsListOfIntegers(file);
+        Day17 day17 = new Day17(input, 150);
+        day17.run();
+        System.out.println("Day 17, part I & II results: " + day17);
+    }
 
     private static List<Character> inputAsListOfCharacters(File file) {
         try {
@@ -206,6 +217,17 @@ public class Main {
     private static List<String> inputAsListOfStrings(File file) {
         try {
             return Files.readAllLines(file.toPath());
+        } catch (IOException exception) {
+            throw new RuntimeException("File not found: " + file.getAbsolutePath(), exception);
+        }
+    }
+
+    private static List<Integer> inputAsListOfIntegers(File file) {
+        try {
+            return Files.readAllLines(file.toPath())
+                    .stream()
+                    .map(Integer::parseInt)
+                    .toList();
         } catch (IOException exception) {
             throw new RuntimeException("File not found: " + file.getAbsolutePath(), exception);
         }
