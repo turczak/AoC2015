@@ -162,19 +162,20 @@ public class Main {
     private static void day16() {
         File file = new File("src/main/resources/inputs/day16.txt");
         List<String> input = inputAsListOfStrings(file);
-        Map<String, Integer> tickerTape = Map.of("children", 3,
-                "cats", 7,
-                "samoyeds", 2,
-                "pomeranians", 3,
-                "akitas", 0,
-                "vizslas", 0,
-                "goldfish", 5,
-                "trees", 3,
-                "cars", 2,
-                "perfumes", 1);
+        Map<String, Integer> tickerTape = Map.ofEntries(
+                Map.entry("children", 3),
+                Map.entry("cats", 7),
+                Map.entry("samoyeds", 2),
+                Map.entry("pomeranians", 3),
+                Map.entry("akitas", 0),
+                Map.entry("vizslas", 0),
+                Map.entry("goldfish", 5),
+                Map.entry("trees", 3),
+                Map.entry("cars", 2),
+                Map.entry("perfumes", 1));
         Day16 day16 = new Day16(input, tickerTape);
-        System.out.println("Day 16, part I: " + day16.run(1));
-        System.out.println("Day 16, part II: " + day16.run(2));
+        System.out.println("Day 16, part I: " + day16.partI());
+        System.out.println("Day 16, part II: " + day16.partII());
     }
 
     private static List<Character> inputAsListOfCharacters(File file) {
