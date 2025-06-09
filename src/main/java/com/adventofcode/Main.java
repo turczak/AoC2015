@@ -179,7 +179,6 @@ public class Main {
         System.out.println("Day 16, part I: " + day16.partI());
         System.out.println("Day 16, part II: " + day16.partII());
     }
-    }
 
     private static void day17() {
         File file = new File("src/main/resources/inputs/day17.txt");
