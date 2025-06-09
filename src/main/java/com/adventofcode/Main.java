@@ -173,7 +173,8 @@ public class Main {
                 "cars", 2,
                 "perfumes", 1);
         Day16 day16 = new Day16(input, tickerTape);
-        System.out.println("Day 16, part I: " + day16.correctAunt.index());
+        System.out.println("Day 16, part I: " + day16.run(1));
+        System.out.println("Day 16, part II: " + day16.run(2));
     }
 
     private static List<Character> inputAsListOfCharacters(File file) {

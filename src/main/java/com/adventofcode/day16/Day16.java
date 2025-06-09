@@ -11,23 +11,41 @@ public class Day16 {
     private final Map<String, Integer> tickerTape;
     private final Pattern linePattern = Pattern.compile("Sue (\\d+): (.*)");
     private final Pattern giftsPattern = Pattern.compile("(\\w+): (\\d+)");
-    public final Aunt correctAunt;
 
     public Day16(List<String> input, Map<String, Integer> tickerTape) {
         aunts = input.stream().map(this::parse).toList();
         this.tickerTape = tickerTape;
-        this.correctAunt = findCorrectAunt();
     }
 
-    private Aunt findCorrectAunt() {
+    public int run(int part) {
+        return findCorrectAunt(part).index();
+    }
+
+    private Aunt findCorrectAunt(int part) {
         return aunts.stream()
                 .filter(
-                        aunt -> aunt.gifts()
-                                .entrySet()
-                                .stream()
+                        aunt -> aunt.gifts().entrySet().stream()
                                 .allMatch(
-                                        entry -> tickerTape.containsKey(entry.getKey())
-                                                && tickerTape.get(entry.getKey()).equals(entry.getValue())))
+                                        entry -> {
+                                            if (part == 1) {
+                                                return tickerTape.containsKey(entry.getKey())
+                                                        && tickerTape.get(entry.getKey()).equals(entry.getValue());
+                                            }
+                                            if (part == 2) {
+                                                String key = entry.getKey();
+                                                int value = entry.getValue();
+                                                int target = tickerTape.getOrDefault(key, -1);
+                                                if (target == -1) {
+                                                    return false;
+                                                }
+                                                return switch (key) {
+                                                    case "cats", "trees" -> value > target;
+                                                    case "pomeranians", "goldfish" -> value < target;
+                                                    default -> value == target;
+                                                };
+                                            }
+                                            return false;
+                                        }))
                 .findFirst()
                 .orElse(null);
     }
