@@ -62,3 +62,7 @@ nuclear decay of cat dander and tree pollen), while the `pomeranians` and `goldf
 than** that many (due to the modial interaction of magnetoreluctance).
 
 What is the **number** of the real Aunt Sue?
+
+Your puzzle answer was `405`.
+
+<code style="color : gold">Both parts of this puzzle are complete! They provide two gold stars: **</code>
