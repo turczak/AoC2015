@@ -11,12 +11,22 @@ public class Day16 {
     private final static Pattern AUNT_PATTERN = Pattern.compile("Sue (\\d+): (\\w+): (\\d+), (\\w+): (\\d+), (\\w+): (\\d+)");
 
     public Day16(List<String> input, Map<String, Integer> tickerTape) {
-        aunts = input.stream().map(this::parse).toList();
+        aunts = input.stream()
+                .map(this::parse)
+                .toList();
         this.tickerTape = tickerTape;
     }
 
     public Aunt findCorrectAuntI() {
-        return aunts.stream().filter(aunt -> aunt.gifts().entrySet().stream().allMatch(entry -> tickerTape.containsKey(entry.getKey()) && tickerTape.get(entry.getKey()).equals(entry.getValue()))).findFirst().orElse(null);
+        return aunts.stream().filter(
+                        aunt -> aunt.gifts()
+                                .entrySet()
+                                .stream()
+                                .allMatch(
+                                        entry -> tickerTape.containsKey(entry.getKey())
+                                                && tickerTape.get(entry.getKey()).equals(entry.getValue())))
+                .findFirst()
+                .orElse(null);
     }
 
     public Aunt findCorrectAuntII() {
