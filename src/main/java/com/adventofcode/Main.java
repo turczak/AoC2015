@@ -166,6 +166,10 @@ public class Main {
         System.out.println("Day 17, part I & II results: " + day17);
     }
 
+    private static void day19() {
+        File file = new File("src/main/resources/inputs/day19.txt");
+    }
+
     private static List<Character> inputAsListOfCharacters(File file) {
         try {
             Scanner scanner = new Scanner(file);
