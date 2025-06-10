@@ -176,8 +176,8 @@ public class Main {
                 Map.entry("cars", 2),
                 Map.entry("perfumes", 1));
         Day16 day16 = new Day16(input, tickerTape);
-        System.out.println("Day 16, part I: " + day16.partI());
-        System.out.println("Day 16, part II: " + day16.partII());
+        System.out.println("Day 16, part I: " + day16.findCorrectAuntI().index());
+        System.out.println("Day 16, part II: " + day16.findCorrectAuntII().index());
     }
 
     private static void day17() {
