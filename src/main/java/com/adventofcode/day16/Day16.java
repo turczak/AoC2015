@@ -30,20 +30,21 @@ public class Day16 {
     }
 
     public Aunt findCorrectAuntII() {
-        return aunts.stream().filter(aunt -> aunt.gifts().entrySet().stream().allMatch(entry -> {
-            String key = entry.getKey();
-            int value = entry.getValue();
-            int target = tickerTape.getOrDefault(key, -1);
-            if (target == -1) {
-                return false;
-            }
-            return switch (key) {
-                case "cats", "trees" -> value > target;
-                case "pomeranians", "goldfish" -> value < target;
-                default -> value == target;
-            };
-        })).findFirst().orElse(null);
-
+        return aunts.stream()
+                .filter(aunt -> aunt.gifts().entrySet().stream().
+                        allMatch(entry -> {
+                            String key = entry.getKey();
+                            int value = entry.getValue();
+                            int target = tickerTape.getOrDefault(key, -1);
+                            if (target == -1) {
+                                return false;
+                            }
+                            return switch (key) {
+                                case "cats", "trees" -> value > target;
+                                case "pomeranians", "goldfish" -> value < target;
+                                default -> value == target;
+                            };
+                        })).findFirst().orElse(null);
     }
 
     private Aunt parse(String line) {
