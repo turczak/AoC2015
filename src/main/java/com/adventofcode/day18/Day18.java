@@ -2,14 +2,14 @@ package com.adventofcode.day18;
 
 import com.adventofcode.day06.Light;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Day18 {
 
     private static final int GRID_SIZE = 100;
     private final int steps;
-    private final Light[][] lights;
+    private final List<List<Light>> lights;
 
     public Day18(List<String> input, int steps) {
         this.steps = steps;
@@ -17,7 +17,7 @@ public class Day18 {
     }
 
     public long solvePartI() {
-        Light[][] newLights = lights;
+        List<List<Light>> newLights = lights;
         for (int i = 0; i < steps; i++) {
             newLights = makeStep(newLights);
         }
@@ -25,29 +25,29 @@ public class Day18 {
     }
 
     public long solvePartII() {
-        Light[][] newLights = lights;
+        List<List<Light>> newLights = lights;
         for (int i = 0; i < steps; i++) {
             newLights = makeStepII(newLights);
         }
         return countLights(newLights);
     }
 
-    private long countLights(Light[][] lights) {
-        return Arrays.stream(lights)
-                .flatMap(Arrays::stream)
+    private long countLights(List<List<Light>> lights) {
+        return lights.stream()
+                .flatMap(List::stream)
                 .filter(Light::state)
                 .count();
     }
 
-    private Light[][] parseToGrid(List<String> input) {
+    private List<List<Light>> parseToGrid(List<String> input) {
         return input.stream()
                 .map(line -> line.chars()
                         .mapToObj(character -> new Light(character == '#', 0))
-                        .toArray(Light[]::new))
-                .toArray(Light[][]::new);
+                        .toList())
+                .toList();
     }
 
-    private int countNeighbors(Light[][] lights, int x, int y) {
+    private int countNeighbors(List<List<Light>> lights, int x, int y) {
         int neighbors = 0;
         for (int i = -1; i <= 1; i++) {
             for (int j = -1; j <= 1; j++) {
@@ -56,7 +56,7 @@ public class Day18 {
                 if ((i != 0 || j != 0) && // ignore my position
                         neighborX >= 0 && neighborX < GRID_SIZE && // check borders
                         neighborY >= 0 && neighborY < GRID_SIZE && // check borders
-                        lights[neighborX][neighborY].state()) {
+                        lights.get(neighborX).get(neighborY).state()) {
                     neighbors++;
                 }
             }
@@ -64,38 +64,40 @@ public class Day18 {
         return neighbors;
     }
 
-    private Light[][] makeStep(Light[][] lights) {
-        Light[][] changedLights = new Light[GRID_SIZE][GRID_SIZE];
+    private List<List<Light>> makeStep(List<List<Light>> lights) {
+        List<List<Light>> changedLights = new ArrayList<>(GRID_SIZE);
         for (int x = 0; x < GRID_SIZE; x++) {
+            List<Light> row = new ArrayList<>(GRID_SIZE);
             for (int y = 0; y < GRID_SIZE; y++) {
                 int neighbors = countNeighbors(lights, x, y);
-                boolean nextState = lights[x][y].state()
+                boolean nextState = lights.get(x).get(y).state()
                         ? (neighbors == 2 || neighbors == 3)
                         : (neighbors == 3);
-                changedLights[x][y] = lights[x][y].withState(nextState);
+                row.add(lights.get(x).get(y).withState(nextState).withState(nextState));
             }
+            changedLights.add(row);
         }
         return changedLights;
     }
 
-    private Light[][] makeStepII(Light[][] lights) { // all corners are always lit
-        Light[][] changedLights = new Light[GRID_SIZE][GRID_SIZE];
-        changedLights[0][0] = new Light(true, 0);
-        changedLights[0][99] = new Light(true, 0);
-        changedLights[99][0] = new Light(true, 0);
-        changedLights[99][99] = new Light(true, 0);
+    private List<List<Light>> makeStepII(List<List<Light>> lights) { // all corners are always lit
+        List<List<Light>> changedLights = new ArrayList<>(GRID_SIZE);
         for (int x = 0; x < GRID_SIZE; x++) {
+            List<Light> row = new ArrayList<>(GRID_SIZE);
             for (int y = 0; y < GRID_SIZE; y++) {
-                if ((x == 0 || x == 99) &&
-                        (y == 0 || y == 99)) {
-                    continue;
+                boolean isCorner = (x == 0 || x == GRID_SIZE - 1) &&
+                        (y == 0 || y == GRID_SIZE - 1);
+                if (isCorner) {
+                    row.add(new Light(true, 0));
+                } else {
+                    int neighbors = countNeighbors(lights, x, y);
+                    boolean nextState = lights.get(x).get(y).state()
+                            ? (neighbors == 2 || neighbors == 3)
+                            : (neighbors == 3);
+                    row.add(lights.get(x).get(y).withState(nextState).withState(nextState));
                 }
-                int neighbors = countNeighbors(lights, x, y);
-                boolean nextState = lights[x][y].state()
-                        ? (neighbors == 2 || neighbors == 3)
-                        : (neighbors == 3);
-                changedLights[x][y] = lights[x][y].withState(nextState);
             }
+            changedLights.add(row);
         }
         return changedLights;
     }
