@@ -9,7 +9,7 @@ public class Day18 {
 
     private static final int GRID_SIZE = 100;
     private final int steps;
-    private Light[][] lights = new Light[GRID_SIZE][GRID_SIZE];
+    private final Light[][] lights;
 
     public Day18(List<String> input, int steps) {
         this.steps = steps;
