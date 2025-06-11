@@ -2,6 +2,7 @@ package com.adventofcode.day18;
 
 import com.adventofcode.day06.Light;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class Day18 {
@@ -13,6 +14,13 @@ public class Day18 {
         for (int i = 0; i < steps; i++) {
             makeStep();
         }
+    }
+
+    public long countLights() {
+        return Arrays.stream(lights)
+                .flatMap(Arrays::stream)
+                .filter(Light::state)
+                .count();
     }
 
     private Light[][] parseToGrid(List<String> input) {
@@ -29,7 +37,7 @@ public class Day18 {
             for (int j = -1; j <= 1; j++) {
                 int neighborX = x + i;
                 int neighborY = y + j;
-                if ((neighborX != 0 || neighborY != 0) && // ignore my position
+                if ((i != 0 || j != 0) && // ignore my position
                         neighborX >= 0 && neighborX < lights.length && // check borders
                         neighborY >= 0 && neighborY < lights[0].length && // check borders
                         lights[neighborX][neighborY].state()) {
@@ -41,7 +49,7 @@ public class Day18 {
     }
 
     private void makeStep() {
-        Light[][] changedLights = lights;
+        Light[][] changedLights = new Light[100][100];
         for (int x = 0; x < lights.length; x++) {
             for (int y = 0; y < lights[0].length; y++) {
                 int neighbors = countNeighbors(x, y);

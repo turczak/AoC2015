@@ -172,6 +172,7 @@ public class Main {
         File file = new File("src/main/resources/inputs/day18.txt");
         List<String> input = inputAsListOfStrings(file);
         Day18 day18 = new Day18(input, 100);
+        System.out.println("Day 18, part I results: " + day18.countLights());
     }
 
     private static List<Character> inputAsListOfCharacters(File file) {
