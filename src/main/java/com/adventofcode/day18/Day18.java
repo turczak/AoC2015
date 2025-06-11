@@ -7,16 +7,32 @@ import java.util.List;
 
 public class Day18 {
 
-    private Light[][] lights = new Light[100][100];
+    private static final int GRID_SIZE = 100;
+    private final int steps;
+    private Light[][] lights = new Light[GRID_SIZE][GRID_SIZE];
 
     public Day18(List<String> input, int steps) {
+        this.steps = steps;
         lights = parseToGrid(input);
-        for (int i = 0; i < steps; i++) {
-            makeStep();
-        }
     }
 
-    public long countLights() {
+    public long solvePartI() {
+        Light[][] newLights = lights;
+        for (int i = 0; i < steps; i++) {
+            newLights = makeStep(newLights);
+        }
+        return countLights(newLights);
+    }
+
+    public long solvePartII() {
+        Light[][] newLights = lights;
+        for (int i = 0; i < steps; i++) {
+            newLights = makeStepII(newLights);
+        }
+        return countLights(newLights);
+    }
+
+    private long countLights(Light[][] lights) {
         return Arrays.stream(lights)
                 .flatMap(Arrays::stream)
                 .filter(Light::state)
@@ -31,15 +47,15 @@ public class Day18 {
                 .toArray(Light[][]::new);
     }
 
-    private int countNeighbors(int x, int y) {
+    private int countNeighbors(Light[][] lights, int x, int y) {
         int neighbors = 0;
         for (int i = -1; i <= 1; i++) {
             for (int j = -1; j <= 1; j++) {
                 int neighborX = x + i;
                 int neighborY = y + j;
                 if ((i != 0 || j != 0) && // ignore my position
-                        neighborX >= 0 && neighborX < lights.length && // check borders
-                        neighborY >= 0 && neighborY < lights[0].length && // check borders
+                        neighborX >= 0 && neighborX < GRID_SIZE && // check borders
+                        neighborY >= 0 && neighborY < GRID_SIZE && // check borders
                         lights[neighborX][neighborY].state()) {
                     neighbors++;
                 }
@@ -48,20 +64,39 @@ public class Day18 {
         return neighbors;
     }
 
-    private void makeStep() {
-        Light[][] changedLights = new Light[100][100];
-        for (int x = 0; x < lights.length; x++) {
-            for (int y = 0; y < lights[0].length; y++) {
-                int neighbors = countNeighbors(x, y);
-                boolean nextState;
-                if (lights[x][y].state()) {
-                    nextState = (neighbors == 2 || neighbors == 3);
-                } else {
-                    nextState = (neighbors == 3);
-                }
+    private Light[][] makeStep(Light[][] lights) {
+        Light[][] changedLights = new Light[GRID_SIZE][GRID_SIZE];
+        for (int x = 0; x < GRID_SIZE; x++) {
+            for (int y = 0; y < GRID_SIZE; y++) {
+                int neighbors = countNeighbors(lights, x, y);
+                boolean nextState = lights[x][y].state()
+                        ? (neighbors == 2 || neighbors == 3)
+                        : (neighbors == 3);
                 changedLights[x][y] = lights[x][y].withState(nextState);
             }
         }
-        lights = changedLights;
+        return changedLights;
+    }
+
+    private Light[][] makeStepII(Light[][] lights) { // all corners are always lit
+        Light[][] changedLights = new Light[GRID_SIZE][GRID_SIZE];
+        changedLights[0][0] = new Light(true, 0);
+        changedLights[0][99] = new Light(true, 0);
+        changedLights[99][0] = new Light(true, 0);
+        changedLights[99][99] = new Light(true, 0);
+        for (int x = 0; x < GRID_SIZE; x++) {
+            for (int y = 0; y < GRID_SIZE; y++) {
+                if ((x == 0 || x == 99) &&
+                        (y == 0 || y == 99)) {
+                    continue;
+                }
+                int neighbors = countNeighbors(lights, x, y);
+                boolean nextState = lights[x][y].state()
+                        ? (neighbors == 2 || neighbors == 3)
+                        : (neighbors == 3);
+                changedLights[x][y] = lights[x][y].withState(nextState);
+            }
+        }
+        return changedLights;
     }
 }
