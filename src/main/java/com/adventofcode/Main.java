@@ -171,7 +171,7 @@ public class Main {
     private static void day18() {
         File file = new File("src/main/resources/inputs/day18.txt");
         List<String> input = inputAsListOfStrings(file);
-        Day18 day18 = new Day18(input);
+        Day18 day18 = new Day18(input, 100);
     }
 
     private static List<Character> inputAsListOfCharacters(File file) {

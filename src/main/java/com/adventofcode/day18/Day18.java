@@ -8,8 +8,11 @@ public class Day18 {
 
     private Light[][] lights = new Light[100][100];
 
-    public Day18(List<String> input) {
+    public Day18(List<String> input, int steps) {
         lights = parseToGrid(input);
+        for (int i = 0; i < steps; i++) {
+            makeStep();
+        }
     }
 
     private Light[][] parseToGrid(List<String> input) {
@@ -37,5 +40,20 @@ public class Day18 {
         return neighbors;
     }
 
-
+    private void makeStep() {
+        Light[][] changedLights = lights;
+        for (int x = 0; x < lights.length; x++) {
+            for (int y = 0; y < lights[0].length; y++) {
+                int neighbors = countNeighbors(x, y);
+                boolean nextState;
+                if (lights[x][y].state()) {
+                    nextState = (neighbors == 2 || neighbors == 3);
+                } else {
+                    nextState = (neighbors == 3);
+                }
+                changedLights[x][y] = lights[x][y].withState(nextState);
+            }
+        }
+        lights = changedLights;
+    }
 }
