@@ -172,6 +172,7 @@ public class Main {
         File file = new File("src/main/resources/inputs/day19.txt");
         List<String> input = inputAsListOfStrings(file);
         Day19 day19 = new Day19(input);
+        System.out.println("Day 19, part I results: " + day19.checkAndReplace());
     }
 
     private static List<Character> inputAsListOfCharacters(File file) {
