@@ -17,6 +17,7 @@ import com.adventofcode.day12.Day12;
 import com.adventofcode.day15.Day15;
 import com.adventofcode.day16.Day16;
 import com.adventofcode.day17.Day17;
+import com.adventofcode.day18.Day18;
 import com.adventofcode.day19.Day19;
 
 import java.io.File;
@@ -56,6 +57,7 @@ public class Main {
                 case 15 -> day15();
                 case 16 -> day16();
                 case 17 -> day17();
+                case 18 -> day18();
                 case 19 -> day19();
                 default -> System.out.println("Invalid option, please use number between 1 and 25.");
             }
@@ -188,6 +190,14 @@ public class Main {
         Day17 day17 = new Day17(input, 150);
         day17.run();
         System.out.println("Day 17, part I & II results: " + day17);
+    }
+
+    private static void day18() {
+        File file = new File("src/main/resources/inputs/day18.txt");
+        List<String> input = inputAsListOfStrings(file);
+        Day18 day18 = new Day18(input, 100);
+        System.out.println("Day 18, part I results: " + day18.solvePartI());
+        System.out.println("Day 18, part II results: " + day18.solvePartII());
     }
 
     private static void day19() {
