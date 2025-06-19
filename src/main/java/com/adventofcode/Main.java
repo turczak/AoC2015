@@ -15,7 +15,10 @@ import com.adventofcode.day10.Day10;
 import com.adventofcode.day11.Day11;
 import com.adventofcode.day12.Day12;
 import com.adventofcode.day15.Day15;
+import com.adventofcode.day16.Day16;
 import com.adventofcode.day17.Day17;
+import com.adventofcode.day18.Day18;
+import com.adventofcode.day19.Day19;
 import com.adventofcode.day20.Day20;
 
 import java.io.File;
@@ -24,6 +27,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 
 public class Main {
@@ -52,7 +56,10 @@ public class Main {
                 case 11 -> day11();
                 case 12 -> day12();
                 case 15 -> day15();
+                case 16 -> day16();
                 case 17 -> day17();
+                case 18 -> day18();
+                case 19 -> day19();
                 case 20 -> day20();
                 default -> System.out.println("Invalid option, please use number between 1 and 25.");
             }
@@ -160,6 +167,25 @@ public class Main {
         System.out.println(day15.run());
     }
 
+    private static void day16() {
+        File file = new File("src/main/resources/inputs/day16.txt");
+        List<String> input = inputAsListOfStrings(file);
+        Map<String, Integer> tickerTape = Map.ofEntries(
+                Map.entry("children", 3),
+                Map.entry("cats", 7),
+                Map.entry("samoyeds", 2),
+                Map.entry("pomeranians", 3),
+                Map.entry("akitas", 0),
+                Map.entry("vizslas", 0),
+                Map.entry("goldfish", 5),
+                Map.entry("trees", 3),
+                Map.entry("cars", 2),
+                Map.entry("perfumes", 1));
+        Day16 day16 = new Day16(input, tickerTape);
+        System.out.println("Day 16, part I: " + day16.findCorrectAuntI().index());
+        System.out.println("Day 16, part II: " + day16.findCorrectAuntII().index());
+    }
+
     private static void day17() {
         File file = new File("src/main/resources/inputs/day17.txt");
         List<Integer> input = inputAsListOfIntegers(file);
@@ -172,6 +198,21 @@ public class Main {
         int input = 33100000;
         Day20 day20 = new Day20(input);
         System.out.println("Day 20, part I results: \n" + day20.run());
+    }
+
+    private static void day18() {
+        File file = new File("src/main/resources/inputs/day18.txt");
+        List<String> input = inputAsListOfStrings(file);
+        Day18 day18 = new Day18(input, 100);
+        System.out.println("Day 18, part I results: " + day18.solvePartI());
+        System.out.println("Day 18, part II results: " + day18.solvePartII());
+    }
+
+    private static void day19() {
+        File file = new File("src/main/resources/inputs/day19.txt");
+        List<String> input = inputAsListOfStrings(file);
+        Day19 day19 = new Day19(input);
+        System.out.println("Day 19, part I results: " + day19.checkAndReplace());
     }
 
     private static List<Character> inputAsListOfCharacters(File file) {
