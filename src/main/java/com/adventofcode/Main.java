@@ -170,8 +170,8 @@ public class Main {
 
     private static void day20() {
         int input = 33100000;
-        Day20 day20 = new Day20();
-        System.out.println("Day 20, part I results: " + day20.run(input));
+        Day20 day20 = new Day20(input);
+        System.out.println("Day 20, part I results: \n" + day20.run());
     }
 
     private static List<Character> inputAsListOfCharacters(File file) {
