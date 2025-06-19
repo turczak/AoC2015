@@ -15,11 +15,11 @@
 | [Day 13](https://github.com/turczak/AoC2015/tree/main/src/main/java/com/adventofcode/day13) | Knights of the Dinner Table            | :grey_question:    | :grey_question:    |
 | [Day 14](https://github.com/turczak/AoC2015/tree/main/src/main/java/com/adventofcode/day14) | Reindeer Olympics                      | :heavy_check_mark: | :heavy_check_mark: |
 | [Day 15](https://github.com/turczak/AoC2015/tree/main/src/main/java/com/adventofcode/day15) | Science for Hungry People              | :heavy_check_mark: | :heavy_check_mark: |
-| [Day 16](https://github.com/turczak/AoC2015/tree/main/src/main/java/com/adventofcode/day16) | Aunt Sue                               | :grey_question:    | :grey_question:    |
+| [Day 16](https://github.com/turczak/AoC2015/tree/main/src/main/java/com/adventofcode/day16) | Aunt Sue                               | :heavy_check_mark: | :heavy_check_mark: |
 | [Day 17](https://github.com/turczak/AoC2015/tree/main/src/main/java/com/adventofcode/day17) | No Such Thing as Too Much              | :heavy_check_mark: | :heavy_check_mark: |
-| [Day 18](https://github.com/turczak/AoC2015/tree/main/src/main/java/com/adventofcode/day18) | Like a GIF For Your Yard               | :grey_question:    | :grey_question:    |
-| [Day 19](https://github.com/turczak/AoC2015/tree/main/src/main/java/com/adventofcode/day19) | Medicine for Rudolph                   | :grey_question:    | :grey_question:    |
-| [Day 20](https://github.com/turczak/AoC2015/tree/main/src/main/java/com/adventofcode/day20) | Infinite Elves and Infinite Houses     | :grey_question:    | :grey_question:    |
+| [Day 18](https://github.com/turczak/AoC2015/tree/main/src/main/java/com/adventofcode/day18) | Like a GIF For Your Yard               | :heavy_check_mark: | :heavy_check_mark: |
+| [Day 19](https://github.com/turczak/AoC2015/tree/main/src/main/java/com/adventofcode/day19) | Medicine for Rudolph                   | :heavy_check_mark: | :grey_question:    |
+| [Day 20](https://github.com/turczak/AoC2015/tree/main/src/main/java/com/adventofcode/day20) | Infinite Elves and Infinite Houses     | :heavy_check_mark: | :grey_question:    |
 | [Day 21](https://github.com/turczak/AoC2015/tree/main/src/main/java/com/adventofcode/day21) | RPG Simulator 20XX                     | :grey_question:    | :grey_question:    |
 | [Day 22](https://github.com/turczak/AoC2015/tree/main/src/main/java/com/adventofcode/day22) | Wizard Simulator 20XX                  | :grey_question:    | :grey_question:    |
 | [Day 23](https://github.com/turczak/AoC2015/tree/main/src/main/java/com/adventofcode/day23) | Opening the Turing Lock                | :grey_question:    | :grey_question:    |
