@@ -15,12 +15,8 @@ public class Day20 {
     private void deliverPresents(int limit, int multiplier) {
         int sizeLimit = target / multiplier;
         for (int elf = 1; elf <= sizeLimit; elf++) {
-            int deliveries = 0;
-            for (int house = elf; house <= sizeLimit; house += elf) {
+            for (int house = elf, deliveries = 0; house <= sizeLimit && deliveries != limit; house += elf, deliveries++) {
                 houses.merge(house, elf * multiplier, Integer::sum);
-                if (deliveries++ == limit) {
-                    break;
-                }
             }
         }
     }
