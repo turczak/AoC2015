@@ -197,7 +197,8 @@ public class Main {
     private static void day20() {
         int input = 33100000;
         Day20 day20 = new Day20(input);
-        System.out.println("Day 20, part I results: \n" + day20.run());
+        System.out.println("Day 20, part I results: \n" + day20.partI());
+        System.out.println("Day 20, part II results: \n" + day20.partII());
     }
 
     private static void day18() {

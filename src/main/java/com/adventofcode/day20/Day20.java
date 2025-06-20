@@ -12,11 +12,15 @@ public class Day20 {
         this.target = input;
     }
 
-    private void deliverPresents() {
-        int sizeLimit = target / 10;
+    private void deliverPresents(int limit, int multiplier) {
+        int sizeLimit = target / multiplier;
         for (int elf = 1; elf <= sizeLimit; elf++) {
+            int deliveries = 0;
             for (int house = elf; house <= sizeLimit; house += elf) {
-                houses.merge(house, elf * 10, Integer::sum);
+                houses.merge(house, elf * multiplier, Integer::sum);
+                if (deliveries++ == limit) {
+                    break;
+                }
             }
         }
     }
@@ -29,8 +33,15 @@ public class Day20 {
                 .orElse(-1);
     }
 
-    public String run() {
-        deliverPresents();
+    public String partI() {
+        houses.clear();
+        deliverPresents(Integer.MAX_VALUE, 10);
+        return "Lowest house number with at least " + target + " presents: " + findLowestHouseNumber();
+    }
+
+    public String partII() {
+        houses.clear();
+        deliverPresents(50, 11);
         return "Lowest house number with at least " + target + " presents: " + findLowestHouseNumber();
     }
 }
