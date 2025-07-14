@@ -37,18 +37,18 @@ public class Day21 {
     }
 
     // return true if player win
-    private boolean simulateFight(int playerDamage, int playerArmor) {
-        int playerHP = PLAYER_HIT_POINTS;
-        int bossHP = BOSS_HIT_POINTS;
-        int damageToBoss = Math.max(1, playerDamage - BOSS_ARMOR);
-        int damageToPlayer = Math.max(1, BOSS_DAMAGE - playerArmor);
+    private boolean simulateFight(int playerDamage, int playerDefense) {
+        LivingEntity player = new LivingEntity(PLAYER_HIT_POINTS, playerDamage, playerDefense);
+        LivingEntity boss = new LivingEntity(BOSS_HIT_POINTS, BOSS_DAMAGE, BOSS_ARMOR);
         while (true) {
-            bossHP -= damageToBoss;
-            if (bossHP <= 0) {
+            boss.takeDamage(
+                    Math.max(1, player.getDamage() - boss.getDefense()));
+            if (!boss.isAlive()) {
                 return true;
             }
-            playerHP -= damageToPlayer;
-            if (playerHP <= 0) {
+            player.takeDamage(
+                    Math.max(1, boss.getDamage() - player.getDefense()));
+            if (!player.isAlive()) {
                 return false;
             }
         }
