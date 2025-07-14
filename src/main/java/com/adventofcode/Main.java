@@ -20,6 +20,7 @@ import com.adventofcode.day17.Day17;
 import com.adventofcode.day18.Day18;
 import com.adventofcode.day19.Day19;
 import com.adventofcode.day20.Day20;
+import com.adventofcode.day21.Day21;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -218,7 +219,9 @@ public class Main {
     }
 
     private static void day21() {
-        // TODO
+        Day21 day21 = new Day21();
+        int minCostToWin = day21.calculateMinimalGoldToWin();
+        System.out.println("Day 21, part I result: " + minCostToWin);
     }
 
     private static List<Character> inputAsListOfCharacters(File file) {
