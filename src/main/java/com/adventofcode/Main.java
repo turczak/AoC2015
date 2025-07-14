@@ -61,6 +61,7 @@ public class Main {
                 case 18 -> day18();
                 case 19 -> day19();
                 case 20 -> day20();
+                case 21 -> day21();
                 default -> System.out.println("Invalid option, please use number between 1 and 25.");
             }
         }
@@ -214,6 +215,10 @@ public class Main {
         List<String> input = inputAsListOfStrings(file);
         Day19 day19 = new Day19(input);
         System.out.println("Day 19, part I results: " + day19.checkAndReplace());
+    }
+
+    private static void day21() {
+        // TODO
     }
 
     private static List<Character> inputAsListOfCharacters(File file) {
