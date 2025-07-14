@@ -26,6 +26,7 @@ public class ItemShop {
 
     private Set<Armor> initializeArmors() {
         return Set.of(
+                new Armor("No armor", 0, 0),
                 new Armor("Leather", 13, 1),
                 new Armor("Chainmail", 31, 2),
                 new Armor("Splintmail", 53, 3),
@@ -56,5 +57,5 @@ public class ItemShop {
     public Set<Ring> getRings() {
         return rings;
     }
-    
+
 }
