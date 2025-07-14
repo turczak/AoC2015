@@ -38,8 +38,8 @@ public class Day21 {
 
     // return true if player win
     private boolean simulateFight(int playerDamage, int playerDefense) {
-        LivingEntity player = new LivingEntity(PLAYER_HIT_POINTS, playerDamage, playerDefense);
-        LivingEntity boss = new LivingEntity(BOSS_HIT_POINTS, BOSS_DAMAGE, BOSS_ARMOR);
+        Player player = new Player(PLAYER_HIT_POINTS, playerDamage, playerDefense);
+        Boss boss = new Boss(BOSS_HIT_POINTS, BOSS_DAMAGE, BOSS_ARMOR);
         while (true) {
             boss.takeDamage(
                     Math.max(1, player.getDamage() - boss.getDefense()));
