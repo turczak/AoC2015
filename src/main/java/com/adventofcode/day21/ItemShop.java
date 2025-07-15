@@ -4,15 +4,9 @@ import java.util.Set;
 
 public class ItemShop {
 
-    private final Set<Weapon> weapons;
-    private final Set<Armor> armors;
-    private final Set<Ring> rings;
-
-    public ItemShop() {
-        this.weapons = initializeWeapons();
-        this.armors = initializeArmors();
-        this.rings = initializeRings();
-    }
+    private final Set<Weapon> weapons = initializeWeapons();
+    private final Set<Armor> armors = initializeArmors();
+    private final Set<Ring> rings = initializeRings();
 
     private Set<Weapon> initializeWeapons() {
         return Set.of(
