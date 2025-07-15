@@ -1,6 +1,8 @@
 package com.adventofcode.day21;
 
-public class Ring extends ItemFromShop {
+import java.util.Objects;
+
+public class Ring extends ShopItem {
 
     private final int damage;
     private final int defense;
@@ -18,5 +20,33 @@ public class Ring extends ItemFromShop {
     public int getDefense() {
         return defense;
     }
-    
+
+    @Override
+    public boolean equals(Object object) {
+        if (object == null
+                || getClass() != object.getClass()) {
+            return false;
+        }
+        if (!super.equals(object)) {
+            return false;
+        }
+        Ring ring = (Ring) object;
+        return damage == ring.damage
+                && defense == ring.defense;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+                super.hashCode(),
+                damage,
+                defense);
+    }
+
+    @Override
+    public String toString() {
+        return super.toString()
+                + String.format(", defense= %d, damage= %d)", defense, damage);
+    }
+
 }

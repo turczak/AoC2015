@@ -1,4 +1,6 @@
-package com.adventofcode.day21;
+package com.adventofcode.day22;
+
+import com.adventofcode.day21.LivingEntity;
 
 public class Boss extends LivingEntity {
 

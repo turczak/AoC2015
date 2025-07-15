@@ -20,7 +20,7 @@ public class Day21 {
                 for (List<Ring> ringCombo : generateRingsCombinations()) {
                     int totalCost = weapon.getCost()
                             + armor.getCost()
-                            + ringCombo.stream().mapToInt(ItemFromShop::getCost).sum();
+                            + ringCombo.stream().mapToInt(ShopItem::getCost).sum();
                     int totalDamage = weapon.getDamage()
                             + ringCombo.stream()
                             .mapToInt(Ring::getDamage)
