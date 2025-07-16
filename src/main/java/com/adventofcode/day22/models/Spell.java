@@ -1,6 +1,4 @@
-package com.adventofcode.day22;
-
-import java.util.List;
+package com.adventofcode.day22.models;
 
 public abstract class Spell {
 
@@ -20,6 +18,6 @@ public abstract class Spell {
         return cost;
     }
 
-    public abstract void cast(Player player, Boss boss, List<Effect> effects);
+    public abstract void cast(Player player, Boss boss);
 
 }

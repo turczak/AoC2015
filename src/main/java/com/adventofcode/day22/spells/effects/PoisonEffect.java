@@ -1,8 +1,8 @@
 package com.adventofcode.day22.spells.effects;
 
-import com.adventofcode.day22.Boss;
-import com.adventofcode.day22.Effect;
-import com.adventofcode.day22.Player;
+import com.adventofcode.day22.models.Boss;
+import com.adventofcode.day22.models.Effect;
+import com.adventofcode.day22.models.Player;
 
 public class PoisonEffect extends Effect {
 

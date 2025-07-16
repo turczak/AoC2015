@@ -1,23 +1,25 @@
 package com.adventofcode.day22.spells;
 
-import com.adventofcode.day22.Boss;
-import com.adventofcode.day22.Effect;
-import com.adventofcode.day22.Player;
-import com.adventofcode.day22.Spell;
+import com.adventofcode.day22.models.Boss;
+import com.adventofcode.day22.models.Effect;
+import com.adventofcode.day22.models.Player;
+import com.adventofcode.day22.models.SpellWithEffect;
 import com.adventofcode.day22.spells.effects.RechargeEffect;
 
-import java.util.List;
-
-public class Recharge extends Spell {
+public class Recharge extends SpellWithEffect {
 
     public Recharge() {
         super("Recharge", 229);
     }
 
     @Override
-    public void cast(Player player, Boss boss, List<Effect> effects) {
-        player.spendMana(cost);
-        player.getActiveEffects().add(new RechargeEffect());
+    public void cast(Player player, Boss boss) {
+        player.getActiveEffects().add(createEffect());
+    }
+
+    @Override
+    public Effect createEffect() {
+        return new RechargeEffect();
     }
 
 }

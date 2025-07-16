@@ -1,4 +1,4 @@
-package com.adventofcode.day22;
+package com.adventofcode.day22.models;
 
 import com.adventofcode.day21.LivingEntity;
 

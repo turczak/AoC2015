@@ -1,7 +1,8 @@
 package com.adventofcode.day21;
 
-import com.adventofcode.day22.Effect;
+import com.adventofcode.day22.models.Effect;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class LivingEntity {
@@ -9,7 +10,7 @@ public class LivingEntity {
     private final int damage;
     private int hitPoints;
     private int defense;
-    private List<Effect> activeEffects;
+    private final List<Effect> activeEffects = new ArrayList<>();
 
     public LivingEntity(int hitPoints, int damage, int defense) {
         this.hitPoints = hitPoints;
@@ -29,8 +30,8 @@ public class LivingEntity {
         return defense;
     }
 
-    public void takeDamage(int damageAmount) {
-        hitPoints -= damageAmount;
+    public void takeDamage(int amount) {
+        hitPoints -= amount;
     }
 
     public boolean isAlive() {
@@ -41,12 +42,12 @@ public class LivingEntity {
         hitPoints += amount;
     }
 
-    public void setDefense(int defense) {
-        this.defense = defense;
+    public void setDefense(int amount) {
+        this.defense = amount;
     }
 
     public List<Effect> getActiveEffects() {
         return activeEffects;
     }
-    
+
 }
